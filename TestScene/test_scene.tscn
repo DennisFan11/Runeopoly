@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm3tt1ug6iyd0"]
+
+[ext_resource type="Script" path="res://TestScene/test_scene.gd" id="1_dd1by"]
+[ext_resource type="PackedScene" uid="uid://q0paopfq53uh" path="res://PlayerIcon/player_icon.tscn" id="2_ex4dq"]
+[ext_resource type="PackedScene" uid="uid://cgh7iq5em1yyd" path="res://UI/ui.tscn" id="3_gc0oc"]
+
+[sub_resource type="Curve2D" id="Curve2D_u8aqy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 960, 0, 0, 0, 0, 0, 960, 960, 0, 0, 0, 0, 0, 960, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_dd1by")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u8aqy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 95.9972)
+rotation = -1.5708
+progress = 3744.0
+
+[node name="block_container" type="Node2D" parent="."]
+
+[node name="world_container" type="Node2D" parent="."]
+
+[node name="player_icon" parent="." instance=ExtResource("2_ex4dq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_gc0oc")]
