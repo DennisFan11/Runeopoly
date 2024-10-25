@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ck1lf81bxcgpc"]
+
+[ext_resource type="Texture2D" uid="uid://0vl2oo6m7n74" path="res://GameLoopFSM/Blocks/WorldAsset/Rock.png" id="1_nuax4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_308qo"]
+texture = ExtResource("1_nuax4")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_308qo")

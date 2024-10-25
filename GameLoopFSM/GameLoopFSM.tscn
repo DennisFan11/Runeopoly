@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0r34u4gaa7gd"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/GameLoopFSM.gd" id="1_ljbhs"]
+[ext_resource type="PackedScene" uid="uid://55klsh6aei7r" path="res://GameLoopFSM/UI/UI.tscn" id="2_mtnil"]
+[ext_resource type="PackedScene" uid="uid://d0frox1518hkr" path="res://GameLoopFSM/World/World.tscn" id="3_qvbwa"]
+[ext_resource type="PackedScene" uid="uid://cde07qtkjwi8c" path="res://GameLoopFSM/GameBoard/GameBoard.tscn" id="4_gj8pv"]
+
+[node name="GameLoopFSM" type="Node2D"]
+script = ExtResource("1_ljbhs")
+
+[node name="GameBoard" parent="." instance=ExtResource("4_gj8pv")]
+
+[node name="World" parent="." instance=ExtResource("3_qvbwa")]
+position = Vector2(32, 32)
+
+[node name="UI" parent="." instance=ExtResource("2_mtnil")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cde07qtkjwi8c"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/GameBoard/game_board.gd" id="1_ignva"]
+[ext_resource type="PackedScene" uid="uid://q0paopfq53uh" path="res://GameLoopFSM/GameBoard/PlayerIcon/player_icon.tscn" id="2_q3egi"]
+
+[sub_resource type="Curve2D" id="Curve2D_oor8s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 640, 0, 0, 0, 0, 0, 640, 640, 0, 0, 0, 0, 0, 640, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="GameBoard" type="Node2D"]
+script = ExtResource("1_ignva")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_oor8s")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 63.9958)
+rotation = -1.5708
+progress = 2496.0
+
+[node name="Block" type="Node2D" parent="."]
+
+[node name="player_icon" parent="." instance=ExtResource("2_q3egi")]

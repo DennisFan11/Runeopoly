@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://q0paopfq53uh"]
 
-[ext_resource type="Shader" path="res://PlayerIcon/player_icon.gdshader" id="1_fn1rm"]
+[ext_resource type="Shader" path="res://GameLoopFSM/GameBoard/PlayerIcon/player_icon.gdshader" id="1_fn1rm"]
 [ext_resource type="Texture2D" uid="uid://dmhs41ry0dorv" path="res://icon.svg" id="1_r1jlr"]
-[ext_resource type="Script" path="res://PlayerIcon/icon_anime.gd" id="2_6j30i"]
+[ext_resource type="Script" path="res://GameLoopFSM/GameBoard/PlayerIcon/icon_anime.gd" id="2_6j30i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_au0o3"]
 shader = ExtResource("1_fn1rm")
@@ -11,19 +11,20 @@ shader = ExtResource("1_fn1rm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_au0o3")
-offset_left = -64.0
-offset_top = -128.0
-offset_right = 64.0
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
 color = Color(0, 0, 0, 1)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-8, -64)
+position = Vector2(-8, -16)
 color = Color(1, 0.266667, 1, 1)
 antialiased = true
 polygon = PackedVector2Array(0, -8, 16, -8, 8, 16)
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0, -96)
-scale = Vector2(0.0735672, 0.25)
+position = Vector2(0, -40)
+scale = Vector2(-0.111842, 0.25)
 texture = ExtResource("1_r1jlr")
 script = ExtResource("2_6j30i")
