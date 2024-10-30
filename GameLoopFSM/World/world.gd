@@ -8,6 +8,10 @@ func EXPLORE_ENTER(world:World):
 		_world.queue_free()
 	_world = world
 	add_child(world)
-	get_tree().create_timer(Setting.get_explore_time()).timeout.connect(_EXIT)
-func _EXIT(): # ATTENTION 狀態結束
+	
+	_world.exit.connect(_EXIT)
+	_world.ENTER()
+
+
+func _EXIT(): # ATTENTION 狀態結束 由_world呼叫
 	EXPLORE_EXIT.emit()

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5kksu5cmydi"]
+
+[ext_resource type="Script" path="res://Unit/player/Wizard/wizard.gd" id="1_ou73w"]
+[ext_resource type="PackedScene" uid="uid://bqmnt8r4bm3ey" path="res://Unit/components/Base/PlayerBaseComponent.tscn" id="2_2tg5m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tog34"]
+
+[node name="Wizard" type="CharacterBody2D"]
+script = ExtResource("1_ou73w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tog34")
+
+[node name="PlayerBaseComponent" parent="." instance=ExtResource("2_2tg5m")]

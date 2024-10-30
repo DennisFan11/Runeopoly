@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://db2gjgxfkfhla"]
+
+[ext_resource type="Texture2D" uid="uid://beo8spfduknyv" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0003_6.png" id="1_3vqat"]
+[ext_resource type="Texture2D" uid="uid://b6eg3chsyexm1" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0011_0.png" id="1_eugak"]
+[ext_resource type="Texture2D" uid="uid://fsx4jdk5kyxf" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0010_1.png" id="2_1i6hb"]
+[ext_resource type="Texture2D" uid="uid://ct4uc4g6sp42t" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0004_Lights.png" id="2_oogkt"]
+[ext_resource type="Texture2D" uid="uid://cvswc3hpavgp5" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0009_2.png" id="3_qoc10"]
+[ext_resource type="Texture2D" uid="uid://c8i5ga7xnyy5s" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0008_3.png" id="4_pojco"]
+[ext_resource type="Texture2D" uid="uid://b5782lgxejx8d" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0006_4.png" id="5_2iloi"]
+[ext_resource type="Texture2D" uid="uid://cwb2t6ha6q20b" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0007_Lights.png" id="6_e45l5"]
+[ext_resource type="Texture2D" uid="uid://blprrr1j8cp76" path="res://GameLoopFSM/Blocks/Components/Backgrounds/Forest/Background layers/Layer_0005_5.png" id="7_cpocd"]
+
+[node name="ForestBackground" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(380, -124)
+scale = Vector2(2, 2)
+
+[node name="Parallax2D5" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Parallax2D5"]
+texture = ExtResource("1_eugak")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D5"]
+texture = ExtResource("2_1i6hb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5"]
+texture = ExtResource("3_qoc10")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4"]
+texture = ExtResource("4_pojco")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3"]
+texture = ExtResource("5_2iloi")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D3"]
+texture = ExtResource("6_e45l5")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D"]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2"]
+texture = ExtResource("7_cpocd")
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D"]
+texture = ExtResource("1_3vqat")
+
+[node name="Light" type="Sprite2D" parent="Node2D/Parallax2D"]
+texture = ExtResource("2_oogkt")

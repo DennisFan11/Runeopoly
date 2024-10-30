@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://umhc2vskinqr"]
+
+[ext_resource type="SpriteFrames" uid="uid://br17k5mv7mkb6" path="res://Unit/Enemy/Skull/Skull_fly.tres" id="1_tyfy6"]
+[ext_resource type="Script" path="res://Unit/Enemy/Skull/skull.gd" id="1_yr0ss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_msbu0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8r205"]
+radius = 14.0
+
+[node name="Skull" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_yr0ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_msbu0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("1_tyfy6")
+animation = &"IDLE"
+frame_progress = 0.719923
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_8r205")

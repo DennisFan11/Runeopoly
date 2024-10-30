@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpgh6n0nnkpx6"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/Blocks/Components/EnemySpawnPoint/EnemySpawnPoint.gd" id="1_1n2ar"]
+[ext_resource type="Texture2D" uid="uid://b1r3o5bmar3u6" path="res://GameLoopFSM/Blocks/Components/EnemySpawnPoint/EnemySpawnPoint.png" id="2_wd1ie"]
+
+[node name="EnemySpawnPoint" type="Node2D" groups=["EnemySpawnPoint"]]
+script = ExtResource("1_1n2ar")
+
+[node name="EnemySpawnPoint" type="Sprite2D" parent="."]
+texture = ExtResource("2_wd1ie")

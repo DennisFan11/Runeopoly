@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqmnt8r4bm3ey"]
+
+[ext_resource type="Script" path="res://Unit/components/Base/player_base_component.gd" id="1_xnhno"]
+
+[node name="PlayerBaseComponent" type="Node"]
+script = ExtResource("1_xnhno")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

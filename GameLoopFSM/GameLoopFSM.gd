@@ -16,6 +16,7 @@ signal LOOP_EXIT
 #signal EXPLORE_EXIT
 
 func _ENTER():
+	Setting._game_info = GameInfo.new()
 	_GameBoard.gen_block()
 	
 	_UI.ROLL_EXIT.connect(_MOVE_ENTER) # 必須附帶骰子點數
@@ -27,12 +28,14 @@ func _EXIT():
 	LOOP_EXIT.emit()
 	
 func _ROLL_ENTER():
+	$Camera2D.enabled = true
 	_UI.ROLL_ENTER()
 	_test_state = ROLL
 func _MOVE_ENTER(num:int):
 	_GameBoard.MOVE_ENTER(num)
 	_test_state = MOVE
 func _EXPLORE_ENTER(world:World):
+	$Camera2D.enabled = false
 	_world.EXPLORE_ENTER(world)
 	_test_state = EXPLORE
 	
