@@ -1,10 +1,10 @@
 extends Player
 
 
-const SPEED = 9.0 # %
+const SPEED = 13.5 # %
 const MAX_SPEED = 200.0
 const JUMP_SPEED = -500.0
-const G = 1800.0
+const G = 2000.0
 func _ready():
 	$PlayerBaseComponent.set_start_pos(global_position)
 	$PlayerBaseComponent.set_player(self)
