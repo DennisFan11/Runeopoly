@@ -1,47 +1,34 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvg361wnlxmr3"]
 
 [ext_resource type="Script" path="res://Unit/components/Cloak/cloak.gd" id="1_yq4up"]
+[ext_resource type="Curve2D" uid="uid://qfpjjvan8et1" path="res://Unit/components/Cloak/Cloth_curve.tres" id="2_akgdt"]
 [ext_resource type="Script" path="res://Unit/components/Cloak/back.gd" id="3_0kfmx"]
 [ext_resource type="Script" path="res://Unit/components/Cloak/front.gd" id="4_4dg8k"]
 
-[sub_resource type="Curve2D" id="Curve2D_nhc0k"]
-_data = {
-"points": PackedVector2Array(3.81968, 1.24016, -3.81968, -1.24016, 8.08773, -8.59691, 0.0931588, -1.05527, -0.0931588, 1.05527, -6.97093, -9.84832, -4.7374, -0.148819, 4.7374, 0.148819, 7.17003, -6.84494)
-}
-point_count = 3
-
 [node name="Cloak" type="Node2D"]
 script = ExtResource("1_yq4up")
-metadata/_edit_horizontal_guides_ = [-6.92836, -8.51348, -9.7649]
 
 [node name="FloorRayCast" type="RayCast2D" parent="."]
 target_position = Vector2(0, 100)
-collision_mask = 4
 
 [node name="RightRayCast" type="RayCast2D" parent="."]
-target_position = Vector2(500, 0)
-collision_mask = 4
+target_position = Vector2(100, 0)
 
 [node name="LeftRayCast" type="RayCast2D" parent="."]
-target_position = Vector2(-500, 0)
-collision_mask = 4
+target_position = Vector2(-100, 0)
 
 [node name="Path2D" type="Path2D" parent="."]
-z_index = 52
-curve = SubResource("Curve2D_nhc0k")
+position = Vector2(-35, 2)
+curve = ExtResource("2_akgdt")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(8.08773, -8.59691)
-rotation = -2.82765
+position = Vector2(49, -6)
+rotation = -2.49571
 
 [node name="Node" type="Node" parent="."]
 
 [node name="Back" type="Node2D" parent="Node"]
-z_index = 49
-z_as_relative = false
 script = ExtResource("3_0kfmx")
 
 [node name="Front" type="Node2D" parent="Node"]
-z_index = 51
-z_as_relative = false
 script = ExtResource("4_4dg8k")

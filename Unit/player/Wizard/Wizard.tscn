@@ -1,14 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5kksu5cmydi"]
+[gd_scene load_steps=8 format=3 uid="uid://c5kksu5cmydi"]
 
 [ext_resource type="Script" path="res://Unit/player/Wizard/wizard.gd" id="1_ou73w"]
 [ext_resource type="PackedScene" uid="uid://bqmnt8r4bm3ey" path="res://Unit/components/Base/PlayerBaseComponent.tscn" id="2_2tg5m"]
+[ext_resource type="SpriteFrames" uid="uid://bg2wd66g5o1re" path="res://Unit/player/asset/wizard_anime.tres" id="2_fxrtn"]
+[ext_resource type="PackedScene" uid="uid://dvg361wnlxmr3" path="res://Unit/components/Cloak/Cloak.tscn" id="3_44ghp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tog34"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwumb"]
+size = Vector2(12, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ald8r"]
+size = Vector2(4, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ece4j"]
+size = Vector2(4, 9)
 
 [node name="Wizard" type="CharacterBody2D"]
 script = ExtResource("1_ou73w")
+metadata/_edit_vertical_guides_ = [-14.0, 14.0]
+metadata/_edit_horizontal_guides_ = [-5.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_tog34")
+shape = SubResource("RectangleShape2D_qwumb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 50
+z_as_relative = false
+position = Vector2(0.412943, -15.4129)
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("2_fxrtn")
+animation = &"IDLE"
 
 [node name="PlayerBaseComponent" parent="." instance=ExtResource("2_2tg5m")]
+
+[node name="Cloak" parent="." instance=ExtResource("3_44ghp")]
+metadata/_edit_group_ = true
+
+[node name="Area2DLeft" type="Area2D" parent="."]
+position = Vector2(-16, -4)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DLeft"]
+position = Vector2(8, -5.5)
+shape = SubResource("RectangleShape2D_ald8r")
+debug_color = Color(0.882353, 1, 0, 0.647059)
+
+[node name="Area2DRight" type="Area2D" parent="."]
+position = Vector2(16, -4)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DRight"]
+position = Vector2(-8, -5.5)
+shape = SubResource("RectangleShape2D_ece4j")
+debug_color = Color(0.882353, 1, 0, 0.647059)
+
+[node name="State" type="Label" parent="."]
+z_index = 5
+offset_left = -9.0
+offset_top = -34.0
+offset_right = 112.0
+offset_bottom = 35.0
+scale = Vector2(0.15, 0.15)
+theme_override_font_sizes/font_size = 50
+text = "state"

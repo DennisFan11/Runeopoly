@@ -16,4 +16,4 @@ func _ready():
 
 func _process(delta):
 	_pos = _player.global_position
-	$Camera2D.offset = $Camera2D.offset.lerp(_pos, delta * 4.5)
+	$Camera2D.offset = $Camera2D.offset.lerp(_pos, delta * 2.5)

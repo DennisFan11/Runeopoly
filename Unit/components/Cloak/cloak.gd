@@ -1,56 +1,99 @@
 extends Node2D
 
-# Globals
+#region 對外接口
+var inverse:bool = false:
+	set(new):
+		inverse = new
+		if new:
+			$Path2D.scale.x = -1.0
+		else:
+			$Path2D.scale.x = 1.0
 
-const ACCURACY = 5 # 模拟精度，决定布料每帧更新的次数
-const GRAVITY = Vector2(0, 10) * 4.0 # 重力向量，决定布料的重力作用
-var CLOTH_Y = 34 # 布料在垂直方向上的点数量
-var CLOTH_X = 44 # 布料在水平方向上的点数量
-const SPACING = 4 # 点之间的间距，用于定义布料的网格大小 8
-const TEAR_DIST = 6000 # 允许的最大距离，用于判断布料是否撕裂 60
-const FRICTION = 0.99 # 摩擦系数，影响布料点的运动阻力 0.99
-const BOUNCE = 0.8 # 弹性系数，决定布料点与边界的反弹效果 0.5
-const WIDTH = 800 # 画布的宽度
-var HEIGHT = 162 # 画布的高度
-
-#const BG_COLOR = Color.ALICE_BLUE # 背景颜色，设置画布的背景色
-
-var mouse = {
-	"cut": 8,
-	"influence": 36,
-	"down": false,
-	"button": MOUSE_BUTTON_LEFT,
-	"x": 0,
-	"y": 0,
-	"px": 0,
-	"py": 0
-}
-
-var points = []
-var squares = []
-var inited:bool = false
-var inverse:bool = false
-var inside:CanvasItem
-func set_pin(new_pin:PackedVector2Array ): # 每偵重固定點
-	for x in CLOTH_X +1:
-		points[x].pin(new_pin[x])
 
 func cut(point:Vector2, r:float): # 裁切
 	for i:PointInfo in points:
 		if (i.position - point).length() <= r:
 			i.free_all_constraint()
+func set_force(_F:Vector2):
+	PointInfo.F = _F
 
-func set_floor(new:float): # 設置地板
-	for i:PointInfo in points:
-		i.set_height(new)
+#endregion
+
+
+#region 節點控制項
+func set_pin(new_pin:PackedVector2Array ): # 每偵重固定點
+	for x in CLOTH_X +1:
+		points[x].pin(new_pin[x])
+func set_bound(): # 設置邊界
+	if $FloorRayCast.is_colliding():
+		PointInfo.HEIGHT = $FloorRayCast.get_collision_point().y
+	else:
+		PointInfo.HEIGHT = $FloorRayCast.to_global($FloorRayCast.target_position).y
+	if $LeftRayCast.is_colliding():
+		PointInfo.LEFT_BOUND = $LeftRayCast.get_collision_point().x
+	else:
+		PointInfo.LEFT_BOUND = $LeftRayCast.to_global($LeftRayCast.target_position).x
+	if $RightRayCast.is_colliding():
+		PointInfo.RIGHT_BOUND = $RightRayCast.get_collision_point().x
+	else:
+		PointInfo.RIGHT_BOUND = $RightRayCast.to_global($RightRayCast.target_position).x
+
+func _ready():
+	init()
+
+func get_point_arr(count:int)-> PackedVector2Array:
+	var arr:PackedVector2Array = []
+	for i in range(count+1):
+		$Path2D/PathFollow2D.progress_ratio = i/float(count+1)
+		arr.append($Path2D/PathFollow2D.global_position)
+	#print(arr)
+	return arr
+var _time = 0.0
+func _process(delta):
+	_time += delta
+	if inited:
+		set_bound()
+		update_cloth(delta)
+		set_pin(get_point_arr(CLOTH_X))
+		PointInfo.F *= 0.95
+		
+		const windF = 2000.0
+		var wind_mount = sin(_time*20.0)/2.0+0.5
+		if inverse:
+			set_force(Vector2(1, 0.0) * delta * windF * wind_mount)
+		else:
+			set_force(Vector2(-1, 0.0) * delta * windF * wind_mount)
+#endregion
+
+
+# Globals
+
+const ACCURACY = 5 # 模拟精度，决定布料每帧更新的次数
+const GRAVITY = Vector2(0, 10) * 4.0 # 重力向量，决定布料的重力作用
+const CLOTH_Y = 15 # 布料在垂直方向上的点数量
+const CLOTH_X = 20 # 布料在水平方向上的点数量 20
+const SPACING = 1 # 点之间的间距，用于定义布料的网格大小 8
+const TEAR_DIST = 9999 # 允许的最大距离，用于判断布料是否撕裂 60
+const FRICTION = 0.85 # 摩擦系数，影响布料点的运动阻力 0.99
+const BOUNCE = 2.0 # 弹性系数，决定布料点与边界的反弹效果 0.5 0.8
+#const WIDTH = 800 # 画布的宽度
+
+var HEIGHT = 162 # 画布的高度
+
+
+var points = []
+var squares = []
+var inited:bool = false
 
 func init():
 	inited = true
-	var start_x = WIDTH / 2 - CLOTH_X * SPACING / 2
+	#var start_x = WIDTH / 2 - CLOTH_X * SPACING / 2
+	var per_points = get_point_arr(CLOTH_X)
+	
 	for y in CLOTH_Y + 1:
 		for x in CLOTH_X + 1:
-			var point = PointInfo.new(Vector2(start_x + x * SPACING, 20 + y * SPACING), mouse)
-			
+			#var point = PointInfo.new(Vector2(start_x + x * SPACING, 20 + y * SPACING))
+			var point = PointInfo.new(per_points[x] + Vector2(0.0, y * SPACING))
 			if y == 0:
 				point.pin(point.position)
 
@@ -78,50 +121,31 @@ func init():
 		for c:Constraint in i.constraints:
 			c.find_square()
 	set_process(true)
-	set_floor(HEIGHT)
 
-func _process(delta):
-	if inited:
-		update_cloth(delta)
-		#queue_redraw()
 
-#func _draw():
-	## Draw all constraints
-	##draw_rect(Rect2(Vector2.ZERO, Vector2(WIDTH, HEIGHT)), BG_COLOR)
-	#if inited:
-		#var inside_drawed = false
-		#for i in squares:
-			#if is_instance_valid(i): # FIXME
-				#if i.draw(self, inverse) and !inside_drawed:
-					#inside_drawed = true
-					#inside.queue_redraw()
-		#for point in points:
-			#point.draw(self)
+
 
 func rander_back(canvas:CanvasItem): # 先調用
+	var alive = 0
 	for i in range(squares.size()):
 		if is_instance_valid(squares[i]): # FIXME
 			squares[i].draw(canvas, inverse)
+			alive+=1
 			if i >= squares.size()/2.0:
 				_last_draw_index = i
 				break
-	print("rander_back to ", _last_draw_index)
+	#print("b alive: ", alive)
 	
 var _last_draw_index:int = 0
 func rander_front(canvas:CanvasItem): #後調用
-	
+	var alive = 0
 	for i in range(_last_draw_index, squares.size()):
 		if is_instance_valid(squares[i]): # FIXME
 			squares[i].draw(canvas, inverse)
-			for p:PointInfo in squares[i].points:
-				p.draw(canvas)
-	
-	#for point in points:
-		#point.draw(canvas)
-	print("rander_front to ", squares.size())
-
-
-
+			alive+=1
+			#for p:PointInfo in squares[i].points: # NOTE Draw point
+				#p.draw(canvas)
+	#print("f alive: ", alive)
 
 func update_cloth(delta):
 	for i in range(ACCURACY):
@@ -134,7 +158,9 @@ func update_cloth(delta):
 
 
 
+#region class
 class Square: # NOTE Constraint中儲存著相鄰Square的引用, Constraint釋放時自動釋放
+	extends Object
 	var points:Array[PointInfo]
 	func _init(p1, p2, p3, p4):
 		points = [p1, p2, p3, p4]
@@ -144,13 +170,13 @@ class Square: # NOTE Constraint中儲存著相鄰Square的引用, Constraint釋�
 			polygon = Geometry2D.convex_hull(polygon)
 			if Geometry2D.triangulate_polygon(polygon).size() == 0:
 				return false
-			canvas.draw_colored_polygon(polygon, Color.AQUAMARINE)
+			canvas.draw_colored_polygon(polygon, Color.DIM_GRAY)
 			return false
 		else:
 			polygon = Geometry2D.convex_hull(polygon)
 			if Geometry2D.triangulate_polygon(polygon).size() == 0:
 				return true
-			canvas.draw_colored_polygon(polygon, Color.AQUA)
+			canvas.draw_colored_polygon(polygon, Color.LIGHT_SLATE_GRAY)
 			return true
 		
 		#canvas.draw_polygon(points, [Color.AQUAMARINE,Color.AQUAMARINE,Color.AQUAMARINE,Color.AQUAMARINE])
@@ -161,20 +187,23 @@ class PointInfo:
 	var velocity : Vector2 = Vector2.ZERO
 	var pin_position : Vector2 = Vector2.ZERO
 	var constraints:Array[Constraint] = []
-	var mouse = {}
 	var squares:Array[Square] = []
 	
-	var HEIGHT:float = 600 # 地板座標
-	func set_height(new:float):
-		HEIGHT = new
-	func _init(pos, my_mouse):
+	static var HEIGHT:float = 600 # 地板座標
+	static var LEFT_BOUND:float = 0.0 # 左邊界
+	static var RIGHT_BOUND:float = 100.0 # 右邊界
+	static var F:Vector2 = Vector2.ZERO
+	
+	func _init(pos):
 		position = pos
-		mouse = my_mouse
 		prev_position = pos
 	func add_square(s:Square):
 		squares.append(s)
 	func update(delta):
 		if pin_position != Vector2.ZERO:
+			#var new_pos = position + (position - prev_position) * FRICTION + velocity * delta
+			#prev_position = position
+			#position = new_pos
 			return
 
 		#if mouse["down"]:
@@ -187,19 +216,21 @@ class PointInfo:
 				#constraints.clear()
 
 		apply_force(GRAVITY)
+		apply_force(F)
 
 		var new_pos = position + (position - prev_position) * FRICTION + velocity * delta
 		prev_position = position
 		position = new_pos
 		velocity = Vector2.ZERO
 
-		#if position.x >= WIDTH:
-			#prev_position.x = WIDTH + (WIDTH - prev_position.x) * BOUNCE
-			#position.x = WIDTH
-		#elif position.x <= 0:
+		if position.x >= RIGHT_BOUND:
+			prev_position.x = RIGHT_BOUND + (RIGHT_BOUND - prev_position.x) * BOUNCE
+			position.x = RIGHT_BOUND
+		elif position.x <= LEFT_BOUND:
+			prev_position.x = LEFT_BOUND + (LEFT_BOUND - prev_position.x) * BOUNCE
 			#prev_position.x *= -BOUNCE
-			#position.x = 0
-#
+			position.x = LEFT_BOUND
+
 		if position.y >= HEIGHT:  # NOTE 可用作地板檢測
 			prev_position.y = HEIGHT + (HEIGHT - prev_position.y) * BOUNCE
 			position.y = HEIGHT
@@ -251,6 +282,7 @@ class Constraint:
 	func free_square(): # 擦除前必須調用
 		for i:Square in squares:
 			if is_instance_valid(i):
+				print("free: ", i)
 				i.free()
 
 	func find_square(): # square更新完調用
@@ -277,3 +309,4 @@ class Constraint:
 
 	func draw(canvas):
 		canvas.draw_line(p1.position, p2.position, Color.BLACK)
+#endregion

@@ -10,7 +10,7 @@ func _EXIT(): # 在子類複寫
 var time = 0.0
 func _process(delta):
 	time += delta
-	if time >0.2:
+	if time >3:
 		time = 0.0
 		_spawn()
 		
