@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5kksu5cmydi"]
+[gd_scene load_steps=10 format=3 uid="uid://c5kksu5cmydi"]
 
 [ext_resource type="Script" path="res://Unit/player/Wizard/wizard.gd" id="1_ou73w"]
 [ext_resource type="PackedScene" uid="uid://bqmnt8r4bm3ey" path="res://Unit/components/Base/PlayerBaseComponent.tscn" id="2_2tg5m"]
 [ext_resource type="SpriteFrames" uid="uid://bg2wd66g5o1re" path="res://Unit/player/asset/wizard_anime.tres" id="2_fxrtn"]
 [ext_resource type="PackedScene" uid="uid://dvg361wnlxmr3" path="res://Unit/components/Cloak/Cloak.tscn" id="3_44ghp"]
+[ext_resource type="Shader" path="res://Unit/player/Wizard/Chaos.gdshader" id="5_ljm2l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwumb"]
 size = Vector2(12, 28)
@@ -14,6 +15,12 @@ size = Vector2(4, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ece4j"]
 size = Vector2(4, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kktg0"]
+shader = ExtResource("5_ljm2l")
+shader_parameter/chaos = 1.0
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.0
+
 [node name="Wizard" type="CharacterBody2D"]
 script = ExtResource("1_ou73w")
 metadata/_edit_vertical_guides_ = [-14.0, 14.0]
@@ -23,6 +30,7 @@ metadata/_edit_horizontal_guides_ = [-5.0]
 shape = SubResource("RectangleShape2D_qwumb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 z_index = 50
 z_as_relative = false
 position = Vector2(0.412943, -15.4129)
@@ -33,6 +41,7 @@ animation = &"IDLE"
 [node name="PlayerBaseComponent" parent="." instance=ExtResource("2_2tg5m")]
 
 [node name="Cloak" parent="." instance=ExtResource("3_44ghp")]
+visible = false
 metadata/_edit_group_ = true
 
 [node name="Area2DLeft" type="Area2D" parent="."]
@@ -64,3 +73,13 @@ offset_bottom = 35.0
 scale = Vector2(0.15, 0.15)
 theme_override_font_sizes/font_size = 50
 text = "state"
+
+[node name="ChaosShader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+z_index = 52
+z_as_relative = false
+material = SubResource("ShaderMaterial_kktg0")
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+offset_bottom = 17.0

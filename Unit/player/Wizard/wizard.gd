@@ -13,8 +13,8 @@ func _process(delta):
 	$Cloak.inverse = last_flip
 	var state = _check_state(_state)
 	$State.text = _map[state] 
-	$AnimatedSprite2D.play(_map[state])
-	$AnimatedSprite2D.flip_h = last_flip
+	%AnimatedSprite2D.play(_map[state])
+	%AnimatedSprite2D.flip_h = last_flip
 	
 func _physics_process(delta):
 	super(delta)

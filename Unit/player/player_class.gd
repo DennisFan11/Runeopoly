@@ -5,7 +5,7 @@ func get_team()-> int: # 由子類完成 給外部的接口
 
 const ACCELERATION = 13.5 # 百分比 
 const DECELERATION = 20.0
-const MAX_SPEED = 200.0
+const MAX_SPEED = 150.0
 const JUMP_SPEED = -500.0
 const G = 2000.0
 

@@ -6,7 +6,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_nhc0k"]
 _data = {
-"points": PackedVector2Array(3.81968, 1.24016, -3.81968, -1.24016, 8.08773, -8.59691, 0.0931588, -1.05527, -0.0931588, 1.05527, -6.97093, -9.84832, -4.7374, -0.148819, 4.7374, 0.148819, 7.17003, -6.84494)
+"points": PackedVector2Array(3.81968, 1.24016, -3.81968, -1.24016, 8.08773, -8.59691, 0.0931588, -1.05527, -0.0931588, 1.05527, -5.37368, -9.90869, -4.7374, -0.148819, 4.7374, 0.148819, 7.17003, -6.84494)
 }
 point_count = 3
 
@@ -37,11 +37,13 @@ rotation = -2.82765
 [node name="Node" type="Node" parent="."]
 
 [node name="Back" type="Node2D" parent="Node"]
+modulate = Color(1, 1, 1, 0.796078)
 z_index = 49
 z_as_relative = false
 script = ExtResource("3_0kfmx")
 
 [node name="Front" type="Node2D" parent="Node"]
+modulate = Color(1, 1, 1, 0.796078)
 z_index = 51
 z_as_relative = false
 script = ExtResource("4_4dg8k")
