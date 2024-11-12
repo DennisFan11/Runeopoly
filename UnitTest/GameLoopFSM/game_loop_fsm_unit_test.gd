@@ -1,6 +1,6 @@
 extends Node2D
 func _ready():
-	#Setting.set_all_time(0.3)
+	Setting.set_all_time(0.3)
 	$GameLoopFSM.LOOP_ENTER()
 func _input(event):
 	if event.is_action_pressed("zoom_in"):

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn7wom7ltjq6r"]
+
+[ext_resource type="Script" path="res://Unit/Weapon/Wand/wand.gd" id="1_d3bl6"]
+[ext_resource type="Texture2D" uid="uid://ddrx75hfpcw0" path="res://Unit/Weapon/Wand/Wand.png" id="2_afhdx"]
+[ext_resource type="SpriteFrames" uid="uid://bgc7i4oj74hyt" path="res://Unit/Weapon/Wand/ball_ainme.tres" id="3_k20va"]
+[ext_resource type="Script" path="res://Unit/Weapon/Wand/ball.gd" id="4_it056"]
+
+[node name="Wand" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_d3bl6")
+
+[node name="group" type="Node2D" parent="."]
+position = Vector2(18, 0)
+rotation = 1.5708
+
+[node name="Wand" type="Sprite2D" parent="group"]
+position = Vector2(2.38419e-07, -8)
+rotation = -0.785398
+texture = ExtResource("2_afhdx")
+
+[node name="ball" type="AnimatedSprite2D" parent="group"]
+position = Vector2(0, -24)
+rotation = -0.785398
+sprite_frames = ExtResource("3_k20va")
+frame_progress = 0.999302
+script = ExtResource("4_it056")
+
+[node name="Marker2D" type="Marker2D" parent="group/ball"]
+unique_name_in_owner = true
+position = Vector2(-9.53674e-07, 9.53674e-07)
+rotation = 0.785398

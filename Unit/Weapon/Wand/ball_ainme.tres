@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bgc7i4oj74hyt"]
+
+[ext_resource type="Texture2D" uid="uid://hg71mv75u5ag" path="res://Unit/Weapon/Wand/wand_ball.png" id="1_ueqrb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q66nk"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75r4g"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpl27"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym0pv"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1d1c"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkhyj"]
+atlas = ExtResource("1_ueqrb")
+region = Rect2(80, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q66nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75r4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpl27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym0pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1d1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkhyj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

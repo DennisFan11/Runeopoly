@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bex85beq3gjec"]
+
+[ext_resource type="Shader" path="res://Unit/Weapon/bullets/NormalBullet/NormalBullet.gdshader" id="1_6qwi4"]
+[ext_resource type="Script" path="res://Unit/Weapon/bullets/NormalBullet/normal_bullet.gd" id="1_h6bu5"]
+[ext_resource type="Texture2D" uid="uid://dpgjbme82ktpu" path="res://Unit/Weapon/bullets/NormalBullet/normal_bellet.png" id="2_47tsx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbnr4"]
+radius = 3.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kc6tv"]
+noise_type = 3
+frequency = 0.0025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3lb3s"]
+width = 256
+height = 256
+seamless = true
+seamless_blend_skirt = 0.5
+noise = SubResource("FastNoiseLite_kc6tv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5bid"]
+resource_local_to_scene = true
+shader = ExtResource("1_6qwi4")
+shader_parameter/strength = 0.3
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/color1 = Color(0.560784, 0.952941, 0.886275, 1)
+shader_parameter/color2 = Color(0.188235, 0.882353, 0.72549, 1)
+shader_parameter/flowMap = SubResource("NoiseTexture2D_3lb3s")
+
+[node name="NormalBullet" type="Node2D"]
+script = ExtResource("1_h6bu5")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_lbnr4")
+
+[node name="Icon" type="Sprite2D" parent="Area2D"]
+material = SubResource("ShaderMaterial_e5bid")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_47tsx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

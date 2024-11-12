@@ -8,7 +8,7 @@ static var _block_size:Vector2 = Vector2(64.0, 64.0)
 static var _block_count:int = 40
 static var _move_time:float = 0.5 # 棋子移動一格所花的時間
 
-static var _explore_time:float = 30.0
+static var _explore_time:float = 120.0
 
 
 

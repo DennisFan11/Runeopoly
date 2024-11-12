@@ -1,10 +1,7 @@
-class_name Enemy
-extends Unit
-static var _player_instance:Player
+class_name Enemy extends Unit
+
 static func _get_player_pos()-> Vector2:
-	if is_instance_valid(_player_instance):
-		return _player_instance.position
-	return Vector2.ZERO
+	return InstanceGetter.get_player().global_position
 func get_team()->int:
 	return ENEMY
 	

@@ -7,6 +7,7 @@ func EXIT(): # 由子類呼叫
 	exit.emit()
 	queue_free()
 func ENTER(): # 給外部呼叫
+	InstanceGetter.set_world(self)
 	_load_player()
 	get_tree().create_timer(Setting.get_explore_time()).timeout.connect(EXIT)
 	
@@ -20,7 +21,6 @@ func _load_player():
 	var instance:Player = Setting.get_game_info().get_player_instance()
 	instance.position = _get_EntryPoint().position
 	add_child(instance)
-	Enemy._player_instance = instance
 
 
 func _get_EntryPoint()-> Node2D:

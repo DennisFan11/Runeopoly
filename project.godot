@@ -27,13 +27,16 @@ folder_colors={
 "res://GameLoopFSM/Blocks/Components/": "yellow",
 "res://GameLoopFSM/GameBoard/PlayerIcon/": "red",
 "res://TestStuff/": "green",
-"res://Unit/": "red"
+"res://Unit/": "red",
+"res://Unit/Effect/fonts/": "orange",
+"res://Unit/player/asset/": "orange"
 }
 
 [global_group]
 
 EntryPoint="地圖進入點"
 EnemySpawnPoint="敵人刷新點"
+Wall="地圖牆"
 
 [input]
 
@@ -93,6 +96,26 @@ dash={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(185, 3),"global_position":Vector2(194, 49),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+s_left={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":-1.0,"script":null)
+]
+}
+s_right={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":2,"axis_value":1.0,"script":null)
+]
+}
+s_up={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":-1.0,"script":null)
+]
+}
+s_down={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
 

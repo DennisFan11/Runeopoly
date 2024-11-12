@@ -7,9 +7,14 @@ func get_team()-> int: # 由子類完成 給外部的接口
 	return UNIT
 func hurt(value: float, guard_time:float=0.0): # 給外部的接口 # guard 為霸體時間
 	if !_is_guard():
+		NumberEffect.Spawn(position, "[color=red]-"+str(value)+"[/color]")
 		_hp -= value
 		_guard_time += guard_time
-		print("left:", _hp)
+		#print("left:", _hp)
+var FORCE = Vector2.ZERO
+func push(force:Vector2): # 擊退
+	if !_is_guard():
+		FORCE +=force
 #endregion
 func _death(): # NOTE 死亡時自動呼叫 生命週期
 	pass

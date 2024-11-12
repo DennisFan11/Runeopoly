@@ -29,7 +29,7 @@ var fall_jump_timer:float = 0.0
 const FALL_JUMP_TIME:float = 0.15
 func is_grab(): # 使用area2D判斷有沒有抓到牆 由子類完成
 	pass
-#--------------------------以上為對外接口 
+#--------------------------以上為對外接口
 
 
 
@@ -44,10 +44,41 @@ func _is_grab(left:Area2D, right:Area2D)-> bool: #判斷工具
 
 var _state: PlayerBaseState
 func _ready():
+	InstanceGetter.set_player(self)
 	_state = PlayerIDLE.new()
+	_enemy_scanner_init()
+	
+	
+	
+	
+	
 func _physics_process(delta):
 	coyote_timer -= delta
 	fall_jump_timer -= delta
+	
 	var dir = Input.get_vector("left", "right", "up", "down")
 	_state = _state.UPDATE(delta, self, dir)
 	move_and_slide()
+	
+func _enemy_scanner_init():
+	_scan_area = Area2D.new()
+	_scan_area.collision_layer = 3
+	_scan_area.collision_mask = 3
+	var coll = CollisionShape2D.new()
+	var shape = CircleShape2D.new()
+	shape.radius = 300.0
+	coll.shape = shape
+	_scan_area.add_child(coll)
+	add_child(_scan_area)
+var _scan_area:Area2D
+
+func find_enemy(pos:Vector2)-> Unit: # 對外接口, 尋找最近的敵人
+	var min_dist := 99999.0
+	var min_enemy:Unit = null
+	for i in _scan_area.get_overlapping_bodies():
+		if i is Unit and (i as Unit).get_team()!=get_team():
+			var dist := (i.global_position- pos).length()
+			if dist<=min_dist:
+				min_enemy = i
+				min_dist = dist
+	return min_enemy

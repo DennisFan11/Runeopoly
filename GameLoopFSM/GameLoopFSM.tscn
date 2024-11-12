@@ -11,7 +11,6 @@ script = ExtResource("1_ljbhs")
 [node name="GameBoard" parent="." instance=ExtResource("4_gj8pv")]
 
 [node name="World" parent="." instance=ExtResource("3_qvbwa")]
-position = Vector2(32, 32)
 
 [node name="UI" parent="." instance=ExtResource("2_mtnil")]
 
