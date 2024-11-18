@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b05ewmy758ggq"]
+
+[ext_resource type="Script" path="res://Unit/components/ItemOwner/item_owner.gd" id="1_x8rgp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etsf5"]
+radius = 50.01
+
+[node name="ItemOwner" type="Node2D"]
+script = ExtResource("1_x8rgp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_etsf5")

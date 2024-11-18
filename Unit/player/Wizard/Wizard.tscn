@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5kksu5cmydi"]
+[gd_scene load_steps=12 format=3 uid="uid://c5kksu5cmydi"]
 
 [ext_resource type="Script" path="res://Unit/player/Wizard/wizard.gd" id="1_ou73w"]
 [ext_resource type="PackedScene" uid="uid://bqmnt8r4bm3ey" path="res://Unit/components/Base/PlayerBaseComponent.tscn" id="2_2tg5m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvg361wnlxmr3" path="res://Unit/components/Cloak/Cloak.tscn" id="3_44ghp"]
 [ext_resource type="Shader" path="res://Unit/player/Wizard/Chaos.gdshader" id="5_ljm2l"]
 [ext_resource type="PackedScene" uid="uid://bn7wom7ltjq6r" path="res://Unit/Weapon/Wand/Wand.tscn" id="6_kaf1f"]
+[ext_resource type="PackedScene" uid="uid://b05ewmy758ggq" path="res://Unit/components/ItemOwner/ItemOwner.tscn" id="7_8oiox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwumb"]
 size = Vector2(12, 28)
@@ -97,3 +98,5 @@ offset_right = 20.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ItemOwner" parent="." instance=ExtResource("7_8oiox")]

@@ -62,6 +62,7 @@ func _physics_process(delta):
 	
 func _enemy_scanner_init():
 	_scan_area = Area2D.new()
+	_scan_area.visible = false
 	_scan_area.collision_layer = 3
 	_scan_area.collision_mask = 3
 	var coll = CollisionShape2D.new()
