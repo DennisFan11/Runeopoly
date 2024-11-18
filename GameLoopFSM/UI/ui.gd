@@ -2,6 +2,7 @@ extends Control
 signal ROLL_EXIT
 func ROLL_ENTER():
 	_roll_dice()
+	$Label.text = "roll number: " + str(_rolled_number)
 func _EXIT():
 	ROLL_EXIT.emit(_rolled_number)
 

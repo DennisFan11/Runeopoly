@@ -9,7 +9,7 @@ signal LOOP_EXIT
 
 @onready var _GameBoard := $GameBoard # 負責Block和,走格子動畫 MOVE
 @onready var _world := $World # 負責World的生成 EXPLORE
-@onready var _UI := $UI # Board UI ROLL
+@onready var _UI := $CanvasLayer/UI # Board UI ROLL
 
 #signal ROLL_EXIT
 #signal MOVE_EXIT
@@ -29,6 +29,7 @@ func _EXIT():
 	
 func _ROLL_ENTER():
 	$Camera2D.enabled = true
+	_UI.visible = true
 	_UI.ROLL_ENTER()
 	_test_state = ROLL
 func _MOVE_ENTER(num:int):
@@ -36,6 +37,7 @@ func _MOVE_ENTER(num:int):
 	_test_state = MOVE
 func _EXPLORE_ENTER(world:World):
 	$Camera2D.enabled = false
+	_UI.visible = false
 	_world.EXPLORE_ENTER(world)
 	_test_state = EXPLORE
 	
