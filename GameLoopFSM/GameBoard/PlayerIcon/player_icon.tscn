@@ -25,6 +25,6 @@ polygon = PackedVector2Array(0, -8, 16, -8, 8, 16)
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
-scale = Vector2(-0.111842, 0.25)
+scale = Vector2(0.248057, 0.25)
 texture = ExtResource("1_r1jlr")
 script = ExtResource("2_6j30i")

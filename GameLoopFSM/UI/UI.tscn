@@ -1,6 +1,334 @@
-[gd_scene load_steps=2 format=3 uid="uid://55klsh6aei7r"]
+[gd_scene load_steps=14 format=3 uid="uid://55klsh6aei7r"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/UI/ui.gd" id="1_pureq"]
+[ext_resource type="Shader" path="res://MainMenu/LineShader.gdshader" id="2_brxda"]
+[ext_resource type="Shader" path="res://GameLoopFSM/UI/cutscene.gdshader" id="2_u2csr"]
+[ext_resource type="Texture2D" uid="uid://7q300ybsohy" path="res://MainMenu/asset/dot_line.png" id="3_kn3dw"]
+[ext_resource type="Theme" uid="uid://buwbdt2itdl2d" path="res://MainMenu/asset/MainMenu.tres" id="4_q7nsl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_42ijf"]
+shader = ExtResource("2_brxda")
+shader_parameter/speed = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yt7pd"]
+shader = ExtResource("2_brxda")
+shader_parameter/speed = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4wxk"]
+shader = ExtResource("2_u2csr")
+shader_parameter/main_color = Color(0.286275, 0.231373, 0.443137, 1)
+shader_parameter/back_color = Color(0.537255, 0.419608, 0.870588, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3nt2"]
+shader = ExtResource("2_u2csr")
+shader_parameter/main_color = Color(0.537255, 0.419608, 0.870588, 1)
+shader_parameter/back_color = Color(0.286275, 0.231373, 0.443137, 1)
+
+[sub_resource type="Animation" id="Animation_35qlu"]
+resource_name = "Cutscene"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LBlack/Black:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RBlack/Black:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LControl/LPolygon2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RControl/RPolygon2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LControl/LPolygon2D:polygon")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-465, -363, 1175, 265, -244, 267), PackedVector2Array(-512, -488, 1415, -131, 1265, 271, -244, 267), PackedVector2Array(-257, 158, 1370, -789, 1265, 271, -244, 267), PackedVector2Array(1073, 368, 33, -932, 2071, -1458, 2385, 720)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RControl/RPolygon2D:polygon")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-1171, -239, 213, -158, 673, 379), PackedVector2Array(-1615, 108, -1186, -269, 213, -158, 312, 539), PackedVector2Array(-1426, 844, -1186, -269, 213, -158, 327, -7), PackedVector2Array(158, 1302, -2015, 709, -2096, -775, -1168, -665)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LBlack/LineL:points")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(684, 89, -86, -205), PackedVector2Array(684, 89, 590, 54)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RBlack/LineR:points")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-569, -57, 130, 185), PackedVector2Array(-569, -57, -437, -13)]
+}
+
+[sub_resource type="Animation" id="Animation_eyieb"]
+resource_name = "Enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RControl/RPolygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-1171, -239, 213, -158, 673, 379), PackedVector2Array(-1171, -239, 213, -158, 673, 379)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LControl/LPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-465, -363, 1175, 265, -244, 267), PackedVector2Array(-465, -363, 1175, 265, -244, 267)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RBlack/Black:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(436, -421), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LBlack/Black:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-313, 401), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LControl/LPolygon2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-225, 284), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RControl/RPolygon2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(269, -301), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LBlack/LineL:points")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(684, 89, 599, 57), PackedVector2Array(684, 89, -86, -205)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RBlack/LineR:points")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [PackedVector2Array(-569, -57, -448, -17), PackedVector2Array(-569, -57, 130, 185)]
+}
+
+[sub_resource type="Animation" id="Animation_61jnx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RControl/RPolygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-1171, -239, 213, -158, 673, 379)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LControl/LPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-465, -363, 1175, 265, -244, 267)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RBlack/Black:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1112, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LBlack/Black:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 608)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LControl/LPolygon2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RControl/RPolygon2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LBlack/LineL:points")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(684, 89, -86, -205)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RBlack/LineR:points")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-569, -57, 130, 185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b04os"]
+_data = {
+"Cutscene": SubResource("Animation_35qlu"),
+"Enter": SubResource("Animation_eyieb"),
+"RESET": SubResource("Animation_61jnx")
+}
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,11 +339,97 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pureq")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 522.0
-offset_top = 443.0
-offset_right = 651.0
-offset_bottom = 539.0
+[node name="LBlack" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Black" type="Polygon2D" parent="LBlack"]
+position = Vector2(0, 608)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-465, -363, 1175, 265, -244, 267)
+
+[node name="LineL" type="Line2D" parent="LBlack"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_42ijf")
+position = Vector2(-1, 6)
+points = PackedVector2Array(684, 89, -86, -205)
+width = 5.0
+texture = ExtResource("3_kn3dw")
+texture_mode = 1
+
+[node name="RBlack" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Black" type="Polygon2D" parent="RBlack"]
+position = Vector2(1112, 0)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1171, -239, 213, -158, 673, 379)
+
+[node name="LineR" type="Line2D" parent="RBlack"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_yt7pd")
+points = PackedVector2Array(-569, -57, 130, 185)
+width = 5.0
+texture = ExtResource("3_kn3dw")
+texture_mode = 1
+
+[node name="RollNumber" type="Label" parent="RBlack"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -32.0
+offset_right = -30.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.316556
+theme = ExtResource("4_q7nsl")
 theme_override_font_sizes/font_size = 70
-text = "test"
+text = "Roll"
+
+[node name="LControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LPolygon2D" type="Polygon2D" parent="LControl"]
+material = SubResource("ShaderMaterial_g4wxk")
+polygon = PackedVector2Array(-465, -363, 1175, 265, -244, 267)
+
+[node name="RControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="RPolygon2D" type="Polygon2D" parent="RControl"]
+material = SubResource("ShaderMaterial_h3nt2")
+polygon = PackedVector2Array(-1171, -239, 213, -158, 673, 379)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b04os")
+}

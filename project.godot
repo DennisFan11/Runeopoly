@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Runeopoly"
-run/main_scene="res://UnitTest/GameLoopFSM/GameLoopFSM_UnitTest.tscn"
+run/main_scene="res://MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/transparent=true
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [file_customization]
 
@@ -27,7 +29,9 @@ folder_colors={
 "res://GameLoopFSM/Blocks/Components/": "yellow",
 "res://GameLoopFSM/Blocks/Components/ItemSpawner/": "red",
 "res://GameLoopFSM/GameBoard/PlayerIcon/": "red",
+"res://MainMenu/": "purple",
 "res://TestStuff/": "green",
+"res://ToolClass/": "green",
 "res://Unit/": "red",
 "res://Unit/Effect/fonts/": "orange",
 "res://Unit/components/": "green",

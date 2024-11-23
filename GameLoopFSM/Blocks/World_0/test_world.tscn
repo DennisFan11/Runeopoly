@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://s88mnqqmabjc"]
 
-[ext_resource type="Script" path="res://GameLoopFSM/Blocks/test_block/test_world.gd" id="1_herei"]
+[ext_resource type="Script" path="res://GameLoopFSM/Blocks/World_0/test_world.gd" id="1_herei"]
 [ext_resource type="TileSet" uid="uid://ck1lf81bxcgpc" path="res://GameLoopFSM/Blocks/WorldAsset/WorldTileSet.tres" id="2_01tow"]
 [ext_resource type="PackedScene" uid="uid://fioblsml8my8" path="res://GameLoopFSM/Blocks/Components/EntryPoint/EntryPoint.tscn" id="3_c5yy2"]
 [ext_resource type="PackedScene" uid="uid://bpgh6n0nnkpx6" path="res://GameLoopFSM/Blocks/Components/EnemySpawnPoint/EnemySpawnPoint.tscn" id="4_kfi1b"]

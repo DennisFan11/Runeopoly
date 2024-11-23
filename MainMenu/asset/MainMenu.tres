@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://buwbdt2itdl2d"]
+
+[ext_resource type="Texture2D" uid="uid://dwd0plcn7ujvn" path="res://MainMenu/asset/Button.png" id="1_y7jps"]
+[ext_resource type="Texture2D" uid="uid://nakaslhdayki" path="res://MainMenu/asset/Button_hover.png" id="2_ssddg"]
+[ext_resource type="FontFile" uid="uid://88x5tibsmp15" path="res://Unit/Effect/fonts/PeaberryBase.ttf" id="3_m6a5w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g41b3"]
+texture = ExtResource("1_y7jps")
+texture_margin_left = 39.0
+texture_margin_right = 42.0
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_04rka"]
+texture = ExtResource("2_ssddg")
+texture_margin_left = 39.0
+texture_margin_right = 42.0
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[resource]
+default_font = ExtResource("3_m6a5w")
+default_font_size = 40
+Button/styles/disabled = SubResource("StyleBoxTexture_g41b3")
+Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_g41b3")
+Button/styles/focus = SubResource("StyleBoxTexture_g41b3")
+Button/styles/hover = SubResource("StyleBoxTexture_04rka")
+Button/styles/normal = SubResource("StyleBoxTexture_g41b3")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_g41b3")
+Button/styles/pressed = SubResource("StyleBoxTexture_g41b3")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_g41b3")

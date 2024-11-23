@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvxevlc5dv6ll"
-path="res://.godot/imported/BaseTile.png-319d8d3f9a39667d8a13bf4494954ba3.ctex"
+uid="uid://dv24bkiewc0qx"
+path="res://.godot/imported/forest1.png-7c7a8b38acddbe4117270bc0dee8e683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameLoopFSM/Blocks/test_block/BaseTile.png"
-dest_files=["res://.godot/imported/BaseTile.png-319d8d3f9a39667d8a13bf4494954ba3.ctex"]
+source_file="res://GameLoopFSM/Blocks/forest1.png"
+dest_files=["res://.godot/imported/forest1.png-7c7a8b38acddbe4117270bc0dee8e683.ctex"]
 
 [params]
 

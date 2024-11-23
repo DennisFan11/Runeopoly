@@ -1,0 +1,694 @@
+[gd_scene load_steps=28 format=3 uid="uid://faycuag8sf4g"]
+
+[ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_7t2pk"]
+[ext_resource type="FontFile" uid="uid://88x5tibsmp15" path="res://Unit/Effect/fonts/PeaberryBase.ttf" id="3_b3663"]
+[ext_resource type="Script" path="res://GameLoopFSM/Blocks/block_class.gd" id="3_dh3db"]
+[ext_resource type="Script" path="res://MainMenu/block_controller.gd" id="3_lqg72"]
+[ext_resource type="Script" path="res://MainMenu/title.gd" id="4_rcr4d"]
+[ext_resource type="Texture2D" uid="uid://bua8melxr72tc" path="res://GameLoopFSM/Blocks/city_block.png" id="4_tena3"]
+[ext_resource type="Texture2D" uid="uid://7q300ybsohy" path="res://MainMenu/asset/dot_line.png" id="5_6v1u2"]
+[ext_resource type="Texture2D" uid="uid://pj4n1xct7hj8" path="res://GameLoopFSM/Blocks/desert_block.png" id="5_r0n1p"]
+[ext_resource type="Texture2D" uid="uid://c4e3brrrmk62n" path="res://GameLoopFSM/Blocks/forest_block.png" id="6_jofl3"]
+[ext_resource type="Shader" path="res://MainMenu/LineShader.gdshader" id="8_qw7du"]
+[ext_resource type="Texture2D" uid="uid://bene7q65md6v3" path="res://MainMenu/asset/player_quit_cion.png" id="8_vb0yj"]
+[ext_resource type="Script" path="res://MainMenu/asset/player_quit_cion.gd" id="9_k1g2b"]
+[ext_resource type="Texture2D" uid="uid://hx65mo6xnigh" path="res://MainMenu/asset/wizard_icon.png" id="9_o6pbb"]
+[ext_resource type="Shader" path="res://MainMenu/Polygon.gdshader" id="10_3c477"]
+[ext_resource type="Texture2D" uid="uid://co3t1gc3m3nly" path="res://MainMenu/asset/player_start_icon.png" id="10_wdafw"]
+[ext_resource type="Texture2D" uid="uid://cfr3qqb61vrxa" path="res://MainMenu/asset/player_setting_Icon.png" id="11_ukgpi"]
+[ext_resource type="Theme" uid="uid://buwbdt2itdl2d" path="res://MainMenu/asset/MainMenu.tres" id="13_rpfg6"]
+[ext_resource type="PackedScene" uid="uid://d0r34u4gaa7gd" path="res://GameLoopFSM/GameLoopFSM.tscn" id="18_pucbu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u0b8p"]
+resource_local_to_scene = true
+shader = ExtResource("8_qw7du")
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6v5j"]
+shader = ExtResource("8_qw7du")
+shader_parameter/speed = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vby20"]
+shader = ExtResource("8_qw7du")
+shader_parameter/speed = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3uq4"]
+shader = ExtResource("8_qw7du")
+shader_parameter/speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_embkk"]
+resource_local_to_scene = true
+shader = ExtResource("10_3c477")
+shader_parameter/main_color = Color(0.537255, 0.419608, 0.870588, 1)
+shader_parameter/back_color = Color(0.286275, 0.231373, 0.443137, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7c7y"]
+resource_local_to_scene = true
+shader = ExtResource("10_3c477")
+shader_parameter/main_color = Color(0.286275, 0.231373, 0.443137, 1)
+shader_parameter/back_color = Color(0.537255, 0.419608, 0.870588, 1)
+
+[sub_resource type="Animation" id="Animation_wejxu"]
+resource_name = "Enter"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuLine/Line2D:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-421, 276, -363, 217), PackedVector2Array(-421, 276, -363, 217), PackedVector2Array(-421, 276, 348, -520)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuLine/Line2D2:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(348, -520, 256, -427), PackedVector2Array(348, -520, 256, -427), PackedVector2Array(348, -520, -421, 276)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IconLine1:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.83333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(1519, 263, 1292, 218), PackedVector2Array(1519, 263, 1292, 218), PackedVector2Array(1519, 263, 220, -72)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IconLine2:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(-54, 76, -30, 126), PackedVector2Array(-54, 76, -30, 126), PackedVector2Array(-54, 76, 309, 833)]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1267, -0.25, 0, 0.2, -1066, 65, -0.431946, -301, 0.3, -0.5),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(803, -0.25, 0, 0.177769, -617, 95, -0.455564, -294, 0.3, 6.5),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DarkPolygon2D:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-1872, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DarkPolygon2D:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-198, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DarkPolygon2D:polygon")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.83333, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(1046, 999, 273, -198, 1890, -107, 1425, 1065), PackedVector2Array(1046, 999, 273, -198, 1890, -107, 1425, 1065), PackedVector2Array(242, 826, 1198, -185, 1890, -107, 1425, 1065)]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%Block:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-28.6683, -0.25, 0, 0.481377, 223.668, -1, -0.0852893, -86, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%Block:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(659.333, -0.25, 0, 0.374022, -838.333, -72, -0.192645, -273, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%Block2:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(700, -0.25, 0, 0, -990.5, -78, -0.151956, -267.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%Block2:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-438.665, -0.25, 0, 0.4, 765.165, 65, -0.133333, 176.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("%Block3:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-591.332, -0.25, 0, 0.333333, 939.332, 68, -0.166667, 201, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("%Block3:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-408.668, -0.25, 0, 0.266667, 674.668, 64.6667, -0.19113, 236.333, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Control/StartButton:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 3.06667, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-308, 391), Vector2(-308, 391), Vector2(844, 391)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Control/SettingButton:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 2.86667, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-329, 462), Vector2(-329, 462), Vector2(781, 462)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Control/QuitButton:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(-0.0666667, 2.7, 3.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-367, 531), Vector2(-367, 531), Vector2(719, 531)]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PlayerIcon:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-61.9998, -0.25, 0, 0.114614, 1145, 1041, -0.292693, 248, 0.25, 0),
+"times": PackedFloat32Array(3.4, 4)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PlayerIcon:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(299, -0.25, 0, 0.25, 0, 295, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(3.4, 4)
+}
+
+[sub_resource type="Animation" id="Animation_laccp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IconLine2:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-54, 76, 309, 833)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IconLine1:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(222, -72, 1309, 237)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuLine/Line2D2:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(348, -520, -421, 276)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MenuLine/Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(348, -520, -421, 276)]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Title:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(95, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DarkPolygon2D:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DarkPolygon2D:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("DarkPolygon2D:polygon")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(242, 826, 1198, -185, 1890, -107, 1425, 1065)]
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%Block:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%Block:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-72, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%Block2:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-78, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%Block2:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(65, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("%Block3:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(68, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("%Block3:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(64.6667, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Control/StartButton:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(844, 391)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Control/SettingButton:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(781, 462)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Control/QuitButton:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(719, 531)]
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("PlayerIcon:position:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("PlayerIcon:position:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qdukx"]
+_data = {
+"Enter": SubResource("Animation_wejxu"),
+"RESET": SubResource("Animation_laccp")
+}
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_7t2pk")
+metadata/_edit_horizontal_guides_ = [-71.0, -320.0]
+metadata/_edit_vertical_guides_ = [221.0]
+
+[node name="GameLoopFSM" parent="." instance=ExtResource("18_pucbu")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 95.0
+offset_right = 665.0
+offset_bottom = 245.0
+rotation = -0.0993775
+scale = Vector2(1.08244, 1.08244)
+pivot_offset = Vector2(300, 75)
+theme_override_fonts/normal_font = ExtResource("3_b3663")
+bbcode_enabled = true
+text = "[center][font_size=100
+][u]Runeopoly[/u][/font_size][/center]"
+script = ExtResource("4_rcr4d")
+
+[node name="MenuLine" type="Node2D" parent="CanvasLayer"]
+position = Vector2(976, 479)
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/MenuLine"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u0b8p")
+position = Vector2(100, 130)
+points = PackedVector2Array(348, -520, -421, 276)
+width = 5.0
+texture = ExtResource("5_6v1u2")
+texture_mode = 1
+antialiased = true
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer/MenuLine"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_v6v5j")
+position = Vector2(-70, 3)
+points = PackedVector2Array(348, -520, -421, 276)
+width = 5.0
+texture = ExtResource("5_6v1u2")
+texture_mode = 1
+
+[node name="IconLine1" type="Line2D" parent="CanvasLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vby20")
+use_parent_material = true
+points = PackedVector2Array(222, -72, 1309, 237)
+width = 50.0
+texture = ExtResource("9_o6pbb")
+texture_mode = 1
+
+[node name="IconLine2" type="Line2D" parent="CanvasLayer"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_a3uq4")
+points = PackedVector2Array(-54, 76, 309, 833)
+width = 50.0
+texture = ExtResource("9_o6pbb")
+texture_mode = 1
+
+[node name="PlayerIcon" type="Node2D" parent="CanvasLayer"]
+rotation = -0.00383526
+scale = Vector2(3, 3)
+
+[node name="PlayerStartIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.427093, 1)
+texture = ExtResource("10_wdafw")
+script = ExtResource("9_k1g2b")
+
+[node name="PlayerSettingIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
+unique_name_in_owner = true
+scale = Vector2(0.427093, 1)
+texture = ExtResource("11_ukgpi")
+script = ExtResource("9_k1g2b")
+
+[node name="PlayerQuitIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.427093, 1)
+texture = ExtResource("8_vb0yj")
+script = ExtResource("9_k1g2b")
+
+[node name="LightPolygon2D" type="Polygon2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_embkk")
+polygon = PackedVector2Array(-203, -168, 1665, -129, 1045, 1104, -365, 857)
+
+[node name="DarkPolygon2D" type="Polygon2D" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_p7c7y")
+color = Color(0.286275, 0.231373, 0.443137, 1)
+polygon = PackedVector2Array(242, 826, 1198, -185, 1890, -107, 1425, 1065)
+
+[node name="BlockController" type="Node2D" parent="CanvasLayer"]
+position = Vector2(332, 446)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+script = ExtResource("3_lqg72")
+
+[node name="Block" type="Node2D" parent="CanvasLayer/BlockController"]
+unique_name_in_owner = true
+position = Vector2(-1, -72)
+rotation = 0.0882551
+scale = Vector2(4, 4)
+script = ExtResource("3_dh3db")
+texture = ExtResource("4_tena3")
+
+[node name="Block2" type="Node2D" parent="CanvasLayer/BlockController"]
+unique_name_in_owner = true
+position = Vector2(-78, 65)
+rotation = 0.0882551
+scale = Vector2(4, 4)
+script = ExtResource("3_dh3db")
+texture = ExtResource("5_r0n1p")
+
+[node name="Block3" type="Node2D" parent="CanvasLayer/BlockController"]
+unique_name_in_owner = true
+position = Vector2(68, 64.6667)
+rotation = 0.0882551
+scale = Vector2(4, 4)
+script = ExtResource("3_dh3db")
+texture = ExtResource("6_jofl3")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 391.0
+offset_right = 1095.0
+offset_bottom = 431.0
+theme = ExtResource("13_rpfg6")
+text = "  Start  "
+
+[node name="SettingButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 781.0
+offset_top = 462.0
+offset_right = 1025.0
+offset_bottom = 502.0
+theme = ExtResource("13_rpfg6")
+text = "Setting"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 531.0
+offset_right = 958.0
+offset_bottom = 571.0
+theme = ExtResource("13_rpfg6")
+text = "  Quit   "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_qdukx")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(370, 2272)
+
+[connection signal="mouse_entered" from="CanvasLayer/Control/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Control/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/SettingButton" to="." method="_on_setting_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Control/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Control/QuitButton" to="." method="_on_quit_button_pressed"]

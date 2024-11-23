@@ -1,5 +1,6 @@
 class_name World
 extends Node2D
+const EXPLORE_TIME:float = 3.0
 
 signal exit
 func EXIT(): # 由子類呼叫
@@ -9,7 +10,7 @@ func EXIT(): # 由子類呼叫
 func ENTER(): # 給外部呼叫
 	InstanceGetter.set_world(self)
 	_load_player()
-	get_tree().create_timer(Setting.get_explore_time()).timeout.connect(EXIT)
+	get_tree().create_timer(EXPLORE_TIME).timeout.connect(EXIT)
 	
 
 func _EXIT(): # 在子類複寫 並呼叫 EXIT

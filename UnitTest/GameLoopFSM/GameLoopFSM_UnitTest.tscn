@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdmwcddvuhb7i"]
-
-[ext_resource type="Script" path="res://UnitTest/GameLoopFSM/game_loop_fsm_unit_test.gd" id="1_x3ybv"]
-[ext_resource type="PackedScene" uid="uid://d0r34u4gaa7gd" path="res://GameLoopFSM/GameLoopFSM.tscn" id="2_s4jm3"]
-
-[node name="GameLoopFsmUnitTest" type="Node2D"]
-script = ExtResource("1_x3ybv")
-
-[node name="GameLoopFSM" parent="." instance=ExtResource("2_s4jm3")]
