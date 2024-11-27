@@ -58,7 +58,7 @@ tracks/0/path = NodePath("MenuLine/Line2D:points")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3),
+"times": PackedFloat32Array(0, 2.2, 3.96667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [PackedVector2Array(-421, 276, -363, 217), PackedVector2Array(-421, 276, -363, 217), PackedVector2Array(-421, 276, 348, -520)]
@@ -70,7 +70,7 @@ tracks/1/path = NodePath("MenuLine/Line2D2:points")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 3),
+"times": PackedFloat32Array(0, 2.2, 3.93333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [PackedVector2Array(348, -520, 256, -427), PackedVector2Array(348, -520, 256, -427), PackedVector2Array(348, -520, -421, 276)]
@@ -82,7 +82,7 @@ tracks/2/path = NodePath("IconLine1:points")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.83333),
+"times": PackedFloat32Array(0, 0.266667, 1.66667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [PackedVector2Array(1519, 263, 1292, 218), PackedVector2Array(1519, 263, 1292, 218), PackedVector2Array(1519, 263, 220, -72)]
@@ -94,7 +94,7 @@ tracks/3/path = NodePath("IconLine2:points")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1, 2.73333),
+"times": PackedFloat32Array(0, 1.83333, 3.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [PackedVector2Array(-54, 76, -30, 126), PackedVector2Array(-54, 76, -30, 126), PackedVector2Array(-54, 76, 309, 833)]
@@ -532,8 +532,8 @@ offset_left = 65.0
 offset_top = 95.0
 offset_right = 665.0
 offset_bottom = 245.0
-rotation = -0.0993775
-scale = Vector2(1.08244, 1.08244)
+rotation = -0.213985
+scale = Vector2(1.00863, 1.00863)
 pivot_offset = Vector2(300, 75)
 theme_override_fonts/normal_font = ExtResource("3_b3663")
 bbcode_enabled = true
@@ -587,20 +587,20 @@ scale = Vector2(3, 3)
 [node name="PlayerStartIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
 unique_name_in_owner = true
 visible = false
-scale = Vector2(0.427093, 1)
+scale = Vector2(-0.984473, 1)
 texture = ExtResource("10_wdafw")
 script = ExtResource("9_k1g2b")
 
 [node name="PlayerSettingIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
 unique_name_in_owner = true
-scale = Vector2(0.427093, 1)
+scale = Vector2(-0.984473, 1)
 texture = ExtResource("11_ukgpi")
 script = ExtResource("9_k1g2b")
 
 [node name="PlayerQuitIcon" type="Sprite2D" parent="CanvasLayer/PlayerIcon"]
 unique_name_in_owner = true
 visible = false
-scale = Vector2(0.427093, 1)
+scale = Vector2(-0.984473, 1)
 texture = ExtResource("8_vb0yj")
 script = ExtResource("9_k1g2b")
 
@@ -622,7 +622,7 @@ script = ExtResource("3_lqg72")
 [node name="Block" type="Node2D" parent="CanvasLayer/BlockController"]
 unique_name_in_owner = true
 position = Vector2(-1, -72)
-rotation = 0.0882551
+rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
 texture = ExtResource("4_tena3")
@@ -630,7 +630,7 @@ texture = ExtResource("4_tena3")
 [node name="Block2" type="Node2D" parent="CanvasLayer/BlockController"]
 unique_name_in_owner = true
 position = Vector2(-78, 65)
-rotation = 0.0882551
+rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
 texture = ExtResource("5_r0n1p")
@@ -638,7 +638,7 @@ texture = ExtResource("5_r0n1p")
 [node name="Block3" type="Node2D" parent="CanvasLayer/BlockController"]
 unique_name_in_owner = true
 position = Vector2(68, 64.6667)
-rotation = 0.0882551
+rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
 texture = ExtResource("6_jofl3")

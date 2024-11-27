@@ -20,6 +20,7 @@ script = ExtResource("1_ljbhs")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 z_index = -1
