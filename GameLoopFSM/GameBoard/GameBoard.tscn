@@ -1,19 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cde07qtkjwi8c"]
+[gd_scene load_steps=9 format=3 uid="uid://cde07qtkjwi8c"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/GameBoard/game_board.gd" id="1_ignva"]
 [ext_resource type="PackedScene" uid="uid://q0paopfq53uh" path="res://GameLoopFSM/GameBoard/PlayerIcon/player_icon.tscn" id="2_q3egi"]
-[ext_resource type="Script" path="res://GameLoopFSM/Blocks/block_class.gd" id="3_gab81"]
-[ext_resource type="Texture2D" uid="uid://c4e3brrrmk62n" path="res://GameLoopFSM/Blocks/forest_block.png" id="4_nw54w"]
-[ext_resource type="PackedScene" uid="uid://s88mnqqmabjc" path="res://GameLoopFSM/Blocks/World_0/test_world.tscn" id="5_py35i"]
-[ext_resource type="Texture2D" uid="uid://pj4n1xct7hj8" path="res://GameLoopFSM/Blocks/desert_block.png" id="6_fqvf2"]
-[ext_resource type="Texture2D" uid="uid://bt0kycp6oux3r" path="res://GameLoopFSM/Blocks/mountain_block.png" id="7_pa6lc"]
-[ext_resource type="Texture2D" uid="uid://bua8melxr72tc" path="res://GameLoopFSM/Blocks/city_block.png" id="8_3mxka"]
-[ext_resource type="Texture2D" uid="uid://dv24bkiewc0qx" path="res://GameLoopFSM/Blocks/forest1.png" id="9_owioa"]
 [ext_resource type="Script" path="res://ToolClass/StackedSprite.gd" id="10_pv7e7"]
 [ext_resource type="Texture2D" uid="uid://dn5l0d7yaemy2" path="res://ToolClass/SmallBuilding02.png" id="11_n16al"]
 [ext_resource type="Texture2D" uid="uid://ck0wtj3kqmsal" path="res://ToolClass/PyramidShips.png" id="12_0j47m"]
 [ext_resource type="Texture2D" uid="uid://033b5cghj0qu" path="res://ToolClass/AncientTemple.png" id="13_uyqj6"]
-[ext_resource type="Texture2D" uid="uid://14djabdvomtm" path="res://ToolClass/AncientCosmicPortal.png" id="14_443sk"]
+[ext_resource type="PackedScene" uid="uid://bt6wrotwcwlin" path="res://GameLoopFSM/_Blocks/portal_line/PortalLine.tscn" id="14_nqyu2"]
 
 [sub_resource type="Curve2D" id="Curve2D_oor8s"]
 _data = {
@@ -37,46 +30,6 @@ progress = 6003.93
 [node name="Block" type="Node2D" parent="."]
 
 [node name="player_icon" parent="." instance=ExtResource("2_q3egi")]
-
-[node name="BlockType" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-406, -270)
-
-[node name="Forest" type="Node2D" parent="BlockType"]
-position = Vector2(-239, -288)
-scale = Vector2(4, 4)
-script = ExtResource("3_gab81")
-texture = ExtResource("4_nw54w")
-world = ExtResource("5_py35i")
-
-[node name="Desert" type="Node2D" parent="BlockType"]
-position = Vector2(-161, -288)
-scale = Vector2(4, 4)
-script = ExtResource("3_gab81")
-texture = ExtResource("6_fqvf2")
-world = ExtResource("5_py35i")
-
-[node name="Mountain" type="Node2D" parent="BlockType"]
-position = Vector2(-74, -289)
-scale = Vector2(4, 4)
-script = ExtResource("3_gab81")
-texture = ExtResource("7_pa6lc")
-world = ExtResource("5_py35i")
-
-[node name="City" type="Node2D" parent="BlockType"]
-position = Vector2(7, -288)
-scale = Vector2(4, 4)
-script = ExtResource("3_gab81")
-texture = ExtResource("8_3mxka")
-world = ExtResource("5_py35i")
-
-[node name="testBlock" type="Node2D" parent="BlockType"]
-position = Vector2(125, -290)
-rotation = -0.74002
-scale = Vector2(4, 4)
-script = ExtResource("3_gab81")
-texture = ExtResource("9_owioa")
-world = ExtResource("5_py35i")
 
 [node name="MapObject" type="Node2D" parent="."]
 scale = Vector2(4, 4)
@@ -116,9 +69,5 @@ script = ExtResource("10_pv7e7")
 texture = ExtResource("13_uyqj6")
 size = Vector3i(40, 40, 40)
 
-[node name="AncientCosmicPortal" type="Node2D" parent="MapObject"]
-position = Vector2(-307, -8.25)
-rotation = -0.973434
-script = ExtResource("10_pv7e7")
-texture = ExtResource("14_443sk")
-size = Vector3i(32, 34, 35)
+[node name="PortalLine" parent="." instance=ExtResource("14_nqyu2")]
+visible = false

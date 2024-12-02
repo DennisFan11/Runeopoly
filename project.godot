@@ -25,10 +25,12 @@ window/stretch/aspect="expand"
 
 folder_colors={
 "res://GameLoopFSM/": "blue",
-"res://GameLoopFSM/Blocks/": "green",
-"res://GameLoopFSM/Blocks/Components/": "yellow",
-"res://GameLoopFSM/Blocks/Components/ItemSpawner/": "red",
 "res://GameLoopFSM/GameBoard/PlayerIcon/": "red",
+"res://GameLoopFSM/_Blocks/": "green",
+"res://GameLoopFSM/_World/": "yellow",
+"res://GameLoopFSM/_World/BattleUI/": "red",
+"res://GameLoopFSM/_World/Components/": "yellow",
+"res://GameLoopFSM/_World/Components/ItemSpawner/": "red",
 "res://MainMenu/": "purple",
 "res://TestStuff/": "green",
 "res://ToolClass/": "green",

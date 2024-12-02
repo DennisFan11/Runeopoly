@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2xiidmt31sgv"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/block_class.gd" id="1_as3mj"]
+[ext_resource type="PackedScene" uid="uid://c8lqq63vutt3u" path="res://GameLoopFSM/_World/World_desert/WorldDesert.tscn" id="2_lfsi5"]
+[ext_resource type="Texture2D" uid="uid://b1ly4562lqbye" path="res://GameLoopFSM/_Blocks/BlockAsset/city_block.png" id="3_b2l8j"]
+
+[node name="Box" type="Node2D"]
+position = Vector2(7, -288)
+scale = Vector2(4, 4)
+script = ExtResource("1_as3mj")
+world = ExtResource("2_lfsi5")
+texture = ExtResource("3_b2l8j")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ek4658mye7xv"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/block_portal.gd" id="1_kgxei"]
+[ext_resource type="PackedScene" uid="uid://s88mnqqmabjc" path="res://GameLoopFSM/_World/World_0/test_world.tscn" id="2_cq3om"]
+[ext_resource type="Texture2D" uid="uid://14djabdvomtm" path="res://GameLoopFSM/_Blocks/BlockAsset/AncientCosmicPortal.png" id="3_3hn06"]
+
+[node name="Protal" type="Node2D"]
+position = Vector2(139, -284)
+scale = Vector2(4, 4)
+script = ExtResource("1_kgxei")
+world = ExtResource("2_cq3om")
+texture = ExtResource("3_3hn06")
+size = Vector3i(32, 34, 35)

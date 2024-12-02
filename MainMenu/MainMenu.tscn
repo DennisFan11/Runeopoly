@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_7t2pk"]
 [ext_resource type="FontFile" uid="uid://88x5tibsmp15" path="res://Unit/Effect/fonts/PeaberryBase.ttf" id="3_b3663"]
-[ext_resource type="Script" path="res://GameLoopFSM/Blocks/block_class.gd" id="3_dh3db"]
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/block_class.gd" id="3_dh3db"]
 [ext_resource type="Script" path="res://MainMenu/block_controller.gd" id="3_lqg72"]
 [ext_resource type="Script" path="res://MainMenu/title.gd" id="4_rcr4d"]
-[ext_resource type="Texture2D" uid="uid://bua8melxr72tc" path="res://GameLoopFSM/Blocks/city_block.png" id="4_tena3"]
 [ext_resource type="Texture2D" uid="uid://7q300ybsohy" path="res://MainMenu/asset/dot_line.png" id="5_6v1u2"]
-[ext_resource type="Texture2D" uid="uid://pj4n1xct7hj8" path="res://GameLoopFSM/Blocks/desert_block.png" id="5_r0n1p"]
-[ext_resource type="Texture2D" uid="uid://c4e3brrrmk62n" path="res://GameLoopFSM/Blocks/forest_block.png" id="6_jofl3"]
 [ext_resource type="Shader" path="res://MainMenu/LineShader.gdshader" id="8_qw7du"]
 [ext_resource type="Texture2D" uid="uid://bene7q65md6v3" path="res://MainMenu/asset/player_quit_cion.png" id="8_vb0yj"]
 [ext_resource type="Script" path="res://MainMenu/asset/player_quit_cion.gd" id="9_k1g2b"]
@@ -17,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://co3t1gc3m3nly" path="res://MainMenu/asset/player_start_icon.png" id="10_wdafw"]
 [ext_resource type="Texture2D" uid="uid://cfr3qqb61vrxa" path="res://MainMenu/asset/player_setting_Icon.png" id="11_ukgpi"]
 [ext_resource type="Theme" uid="uid://buwbdt2itdl2d" path="res://MainMenu/asset/MainMenu.tres" id="13_rpfg6"]
+[ext_resource type="Texture2D" uid="uid://b1ly4562lqbye" path="res://GameLoopFSM/_Blocks/BlockAsset/city_block.png" id="15_bifc0"]
+[ext_resource type="Texture2D" uid="uid://c724ldrog211i" path="res://GameLoopFSM/_Blocks/BlockAsset/desert_block.png" id="16_h43mf"]
+[ext_resource type="Texture2D" uid="uid://br8hlyx7mhn5l" path="res://GameLoopFSM/_Blocks/BlockAsset/forest_block.png" id="17_73ffs"]
 [ext_resource type="PackedScene" uid="uid://d0r34u4gaa7gd" path="res://GameLoopFSM/GameLoopFSM.tscn" id="18_pucbu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u0b8p"]
@@ -625,7 +625,7 @@ position = Vector2(-1, -72)
 rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
-texture = ExtResource("4_tena3")
+texture = ExtResource("15_bifc0")
 
 [node name="Block2" type="Node2D" parent="CanvasLayer/BlockController"]
 unique_name_in_owner = true
@@ -633,7 +633,7 @@ position = Vector2(-78, 65)
 rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
-texture = ExtResource("5_r0n1p")
+texture = ExtResource("16_h43mf")
 
 [node name="Block3" type="Node2D" parent="CanvasLayer/BlockController"]
 unique_name_in_owner = true
@@ -641,7 +641,7 @@ position = Vector2(68, 64.6667)
 rotation = 335.243
 scale = Vector2(4, 4)
 script = ExtResource("3_dh3db")
-texture = ExtResource("6_jofl3")
+texture = ExtResource("17_73ffs")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
