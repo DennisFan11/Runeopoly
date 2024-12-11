@@ -2,7 +2,7 @@ extends Node
 
 var _GameLoop:GameLoopFSM
 func _ready() -> void:
-	
+	$CanvasLayer/Control/GameOverPanel.visible = false
 	_enter_menu()
 	
 	
