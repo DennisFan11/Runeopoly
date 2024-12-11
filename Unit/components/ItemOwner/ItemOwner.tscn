@@ -8,9 +8,9 @@ radius = 50.01
 [node name="ItemOwner" type="Node2D"]
 script = ExtResource("1_x8rgp")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+[node name="Area2D" type="Area2D" parent="." groups=["Buyer"]]
+collision_layer = 136
+collision_mask = 136
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_etsf5")

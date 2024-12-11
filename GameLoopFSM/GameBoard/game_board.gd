@@ -44,6 +44,7 @@ var BlockTypeArr:Array[PackedScene] = [
 	preload("res://GameLoopFSM/_Blocks/BlockType/Forest/forest.tscn"),
 	preload("res://GameLoopFSM/_Blocks/BlockType/Mountain/mountain.tscn"),
 	preload("res://GameLoopFSM/_Blocks/BlockType/Portal/protal.tscn"),
+	preload("res://GameLoopFSM/_Blocks/BlockType/Shop/Shop.tscn")
 ]
 func _gen_test_block(): # TEST 生成地塊
 	for i in range(BLOCK_COUNT):
@@ -72,8 +73,11 @@ var player_pos:int = 0:
 		assert(player_pos>=0 and player_pos<=BLOCK_COUNT,
 			"from GameBoard: player_pos 移動出界")
 
+
 func _move_to_next_block(): # 移到下一格
 	var TIME = MOVE_TIME # 移動時間
+	if Setting.DEBUG:
+		TIME = 0.1
 	var tween = get_tree().create_tween()
 	
 	tween.tween_property(player, "position", _get_block_pos(player_pos), TIME)\

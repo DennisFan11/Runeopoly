@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bhbhw0es3v6jq"]
+
+[ext_resource type="Texture2D" uid="uid://cjochyola3cp1" path="res://Unit/Enemy/Apple/apple-sheet.png" id="1_l7hna"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk4gi"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6kn4"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v6lw"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljjy4"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkgjb"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70ctg"]
+atlas = ExtResource("1_l7hna")
+region = Rect2(160, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk4gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6kn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v6lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljjy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkgjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70ctg")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 5.0
+}]

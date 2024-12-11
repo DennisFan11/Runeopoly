@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://s88mnqqmabjc"]
+[gd_scene load_steps=7 format=4 uid="uid://s88mnqqmabjc"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/_World/World_0/test_world.gd" id="1_herei"]
 [ext_resource type="TileSet" uid="uid://ck1lf81bxcgpc" path="res://GameLoopFSM/_World/WorldAsset/WorldTileSet.tres" id="2_01tow"]
 [ext_resource type="PackedScene" uid="uid://fioblsml8my8" path="res://GameLoopFSM/_World/Components/EntryPoint/EntryPoint.tscn" id="3_c5yy2"]
 [ext_resource type="PackedScene" uid="uid://bpgh6n0nnkpx6" path="res://GameLoopFSM/_World/Components/EnemySpawnPoint/EnemySpawnPoint.tscn" id="4_kfi1b"]
 [ext_resource type="PackedScene" uid="uid://db2gjgxfkfhla" path="res://GameLoopFSM/_World/Components/Backgrounds/Forest/ForestBackground.tscn" id="5_82loe"]
-[ext_resource type="PackedScene" uid="uid://dq204dvnqi4qt" path="res://GameLoopFSM/_World/Components/ItemSpawner/ItemSpawnner.tscn" id="6_hbhqd"]
-[ext_resource type="PackedScene" uid="uid://b86kri7d8bjwh" path="res://Items/Destructible_Item/Iorn/Iorn.tscn" id="6_r6w0t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_h27mo"]
 vertices = PackedVector2Array(688.523, -85.7188, 664.461, 698.688, 591, 591, 591, -15, -71, -72.2422, -15, -15, -123.93, 682.32, -15, 591, 447, 335, 513, 465, 497, 465, 367, 415, 367, 369, 513, 255, 447, 257, 497, 255, 129, 335, 209, 369, 271, 79, 271, 63, 305, 63, 305, 79, 463, 79, 463, 63, 513, 63, 513, 113, 497, 113, 497, 129, 481, 129, 431, 113, 481, 145, 431, 145, 321, 113, 321, 223, 481, 223, 481, 239, 129, 257, 497, 239, 209, 415, 225, 415, 225, 431, 79, 465, 351, 431, 351, 415, 497, 481, 79, 481, 63, 465, 63, 255, 79, 255, 79, 239, 95, 239, 95, 223, 255, 223, 145, 113, 145, 145, 95, 145, 95, 129, 113, 79, 79, 129, 79, 113, 113, 63, 63, 113, 63, 63, 255, 113)
@@ -37,7 +35,3 @@ position = Vector2(290, 93)
 
 [node name="EnemySpawnPoint3" parent="." instance=ExtResource("4_kfi1b")]
 position = Vector2(497, 87)
-
-[node name="ItemSpawnner" parent="." instance=ExtResource("6_hbhqd")]
-position = Vector2(383, 378)
-ItemScene = ExtResource("6_r6w0t")

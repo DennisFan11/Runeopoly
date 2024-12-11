@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b86kri7d8bjwh"]
+
+[ext_resource type="Script" path="res://Items/Destructible_Item/item_12x12/Item12x12.gd" id="1_7usmr"]
+[ext_resource type="Texture2D" uid="uid://cqr7a385poupo" path="res://Items/Destructible_Item/item_12x12/item_select.png" id="1_aysi2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r0b3v"]
+friction = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mehto"]
+size = Vector2(8, 8)
+
+[node name="Item12x12" type="Node2D" node_paths=PackedStringArray("body")]
+script = ExtResource("1_7usmr")
+body = NodePath("RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["Item"]]
+collision_layer = 8
+collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_r0b3v")
+linear_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_mehto")
+
+[node name="ItemSprite" type="Sprite2D" parent="RigidBody2D"]
+
+[node name="SelectSprite" type="Sprite2D" parent="RigidBody2D"]
+visible = false
+z_index = 5
+texture = ExtResource("1_aysi2")

@@ -1,6 +1,6 @@
 class_name World
 extends Node2D
-const EXPLORE_TIME:float = 300.0
+const EXPLORE_TIME:float = 60.0
 
 signal exit
 func EXIT(): # 由子類呼叫
@@ -48,18 +48,8 @@ func _get_EnemySpawnPoints()-> Array[Node2D]:
 
 
 #region Enemy Spawnner
-
-var time = 0.0
+func _ready() -> void:
+	EnemySpawnner.start()
 func _process(delta):
-	time += delta
-	if time >0.5:
-		time = 0.0
-		_spawn()
-		
-var enemy_instance = preload("res://Unit/Enemy/Skull/Skull.tscn")
-func _spawn():
-	var pos = _get_EnemySpawnPoints().pick_random().position
-	var node = enemy_instance.instantiate()
-	node.position = pos
-	add_child(node)
+	EnemySpawnner.update(delta, self)
 #endregion

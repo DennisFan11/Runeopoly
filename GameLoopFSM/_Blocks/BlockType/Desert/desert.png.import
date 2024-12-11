@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://74wipwa4djgx"
-path="res://.godot/imported/test_item.png-531e0ae04dd0f39ba9c5abbcdf52c80e.ctex"
+uid="uid://ftedi75tu8c4"
+path="res://.godot/imported/desert.png-b0c89bea56dc2550d225c484914ac365.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Destructible_Item/Iorn/test_item.png"
-dest_files=["res://.godot/imported/test_item.png-531e0ae04dd0f39ba9c5abbcdf52c80e.ctex"]
+source_file="res://GameLoopFSM/_Blocks/BlockType/Desert/desert.png"
+dest_files=["res://.godot/imported/desert.png-b0c89bea56dc2550d225c484914ac365.ctex"]
 
 [params]
 

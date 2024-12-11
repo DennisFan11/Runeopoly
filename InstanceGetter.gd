@@ -14,3 +14,6 @@ static var _player:Player
 static func get_player()-> Player:
 	assert(is_instance_valid(_player), "from InstanceGetter: player instance not valid")
 	return _player
+
+
+static var game_loop:GameLoopFSM

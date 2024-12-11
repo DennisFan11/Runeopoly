@@ -31,9 +31,9 @@ func is_grab(): # 使用area2D判斷有沒有抓到牆 由子類完成
 	pass
 #--------------------------以上為對外接口
 
-
-
-
+func _death(): # NOTE 死亡時自動呼叫 生命週期
+	InstanceGetter.game_loop.GameOver()
+	
 
 func _is_grab(left:Area2D, right:Area2D)-> bool: #判斷工具
 	if last_flip and left.get_overlapping_bodies().size()!= 0:

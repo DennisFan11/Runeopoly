@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqr7a385poupo"
-path="res://.godot/imported/item_select.png-442f3321c85faec4d556ddd1fd7b90ef.ctex"
+uid="uid://bh4s4pnouwfmx"
+path="res://.godot/imported/shop-export.png-b4e2ca15fe6f2d573470fb2deeb034b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Destructible_Item/Iorn/item_select.png"
-dest_files=["res://.godot/imported/item_select.png-442f3321c85faec4d556ddd1fd7b90ef.ctex"]
+source_file="res://GameLoopFSM/_World/World_shop/shop-export.png"
+dest_files=["res://.godot/imported/shop-export.png-b4e2ca15fe6f2d573470fb2deeb034b9.ctex"]
 
 [params]
 

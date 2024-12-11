@@ -1,9 +1,8 @@
 extends Node
 
-
-@onready var _GameLoop := $GameLoopFSM
+var _GameLoop:GameLoopFSM
 func _ready() -> void:
-	_GameLoop.LOOP_EXIT.connect(_game_end)
+	
 	_enter_menu()
 	
 	
@@ -15,21 +14,36 @@ func _game_start():
 	$Camera2D.enabled = false
 	_started = true
 	$CanvasLayer.visible = false
+	_GameLoop = preload("res://GameLoopFSM/GameLoopFSM.tscn").instantiate()
+	add_child(_GameLoop)
+	_GameLoop.LOOP_EXIT.connect(_game_end)
 	_GameLoop.LOOP_ENTER()
 
 func _game_end():
+	$CanvasLayer/Control/GameOverPanel.visible = true
+	_GameLoop.queue_free()
 	$Camera2D.enabled = true
 	_started = false
 	_enter_menu()
-
+	get_tree().create_timer(3.0).timeout.connect(_gameOverPanelHide)
+func _gameOverPanelHide():
+	$CanvasLayer/Control/GameOverPanel.visible = false
 func _enter_menu():
 	$CanvasLayer.visible = true
-	$CanvasLayer/AnimationPlayer.play("Enter")
+	if Setting.DEBUG:
+		$CanvasLayer/AnimationPlayer.play("Enter", -1, 999.0)
+	else:
+		$CanvasLayer/AnimationPlayer.play("Enter")
+	
+	
 
 
 func _on_start_button_pressed() -> void:
+	var time = 2.0
+	if Setting.DEBUG:
+		time = 0.0
 	$CanvasLayer/AnimationPlayer.play("Enter", -1, -2.0, true)
-	get_tree().create_timer(2.0).timeout.connect(_game_start)
+	get_tree().create_timer(time).timeout.connect(_game_start)
 
 
 func _on_setting_button_pressed() -> void:

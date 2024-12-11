@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg4w45yf3mtet"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/block_class.gd" id="1_gae1v"]
+[ext_resource type="Texture2D" uid="uid://cm3qx0myem3ux" path="res://GameLoopFSM/_Blocks/BlockType/_Boss/boss.png" id="2_ivd7d"]
+
+[node name="Boss" type="Node2D"]
+rotation = 1.5708
+scale = Vector2(2, 2)
+script = ExtResource("1_gae1v")
+texture = ExtResource("2_ivd7d")
+size = Vector3i(40, 40, 40)

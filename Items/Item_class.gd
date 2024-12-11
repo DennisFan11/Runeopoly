@@ -1,4 +1,6 @@
 class_name Item extends Node
+var ID:int = -1
+
 
 static var player_pos:Vector2
 var EndTarget:Vector2 # 到達後消除
@@ -17,7 +19,9 @@ func _CONNECTED_IDLE(delta: float)-> void:
 func _SELECT(delta: float)-> void:
 	_rope.visible = true
 	_update_rope()
-
+func _USED(delta: float):
+	if (get_pos()-EndTarget).length()<= 5.0:
+		queue_free()
 
 var _rope:Line2D
 func _update_rope():
@@ -35,6 +39,8 @@ enum {IDLE, CONNECTED_IDLE, SELECT, CHARGING, USED}
 
 func set_state(new:int):
 	_state = new
+	if new == USED:
+		_rope.queue_free()
 func _physics_process(delta: float) -> void:
 	match _state:
 		IDLE:
@@ -43,6 +49,8 @@ func _physics_process(delta: float) -> void:
 			_CONNECTED_IDLE(delta)
 		SELECT:
 			_SELECT(delta)
+		USED:
+			_USED(delta)
 
 
 

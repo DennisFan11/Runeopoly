@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6hm5qxc0p0hn"]
+[gd_scene load_steps=4 format=3 uid="uid://b6hm5qxc0p0hn"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/_World/BattleUI/battle_ui.gd" id="1_dagmo"]
+[ext_resource type="Texture2D" uid="uid://dy250gow5f6qg" path="res://GameLoopFSM/_World/BattleUI/HP_bar.png" id="2_01sp2"]
+[ext_resource type="Script" path="res://GameLoopFSM/_World/BattleUI/hp_bar.gd" id="3_21po6"]
 
 [node name="BattleUi" type="Node2D"]
 script = ExtResource("1_dagmo")
@@ -23,5 +25,24 @@ offset_right = 98.0
 offset_bottom = 74.0
 theme_override_font_sizes/font_size = 35
 text = "EXIT"
+
+[node name="HP_bar" type="Line2D" parent="CanvasLayer/Control"]
+texture_repeat = 2
+position = Vector2(18, -24)
+scale = Vector2(4, 4)
+points = PackedVector2Array(210.5, 17.25, 272.75, 49.75)
+texture = ExtResource("2_01sp2")
+texture_mode = 1
+script = ExtResource("3_21po6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 873.0
+offset_top = -29.0
+offset_right = 1212.0
+offset_bottom = 92.0
+rotation = 0.44311
+bbcode_enabled = true
+text = "[center][font_size=30][color=green]HP Bar"
 
 [connection signal="pressed" from="CanvasLayer/Control/ExitButton" to="." method="_on_exit_button_pressed"]

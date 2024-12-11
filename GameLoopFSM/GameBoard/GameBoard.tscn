@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cde07qtkjwi8c"]
+[gd_scene load_steps=10 format=3 uid="uid://cde07qtkjwi8c"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/GameBoard/game_board.gd" id="1_ignva"]
 [ext_resource type="PackedScene" uid="uid://q0paopfq53uh" path="res://GameLoopFSM/GameBoard/PlayerIcon/player_icon.tscn" id="2_q3egi"]
+[ext_resource type="Texture2D" uid="uid://b8f47skbl304a" path="res://GameLoopFSM/_Blocks/BlockType/Shop/shop.png" id="7_cuqxl"]
 [ext_resource type="Script" path="res://ToolClass/StackedSprite.gd" id="10_pv7e7"]
 [ext_resource type="Texture2D" uid="uid://dn5l0d7yaemy2" path="res://ToolClass/SmallBuilding02.png" id="11_n16al"]
 [ext_resource type="Texture2D" uid="uid://ck0wtj3kqmsal" path="res://ToolClass/PyramidShips.png" id="12_0j47m"]
@@ -32,6 +33,7 @@ progress = 6003.93
 [node name="player_icon" parent="." instance=ExtResource("2_q3egi")]
 
 [node name="MapObject" type="Node2D" parent="."]
+visible = false
 scale = Vector2(4, 4)
 
 [node name="StackedSprite" type="Node2D" parent="MapObject"]
@@ -67,6 +69,14 @@ position = Vector2(-53.25, 310)
 rotation = -0.0964264
 script = ExtResource("10_pv7e7")
 texture = ExtResource("13_uyqj6")
+size = Vector3i(40, 40, 40)
+
+[node name="StackedSprite2" type="Node2D" parent="MapObject"]
+visible = false
+position = Vector2(61.5, -44)
+rotation = -1.63488
+script = ExtResource("10_pv7e7")
+texture = ExtResource("7_cuqxl")
 size = Vector3i(40, 40, 40)
 
 [node name="PortalLine" parent="." instance=ExtResource("14_nqyu2")]

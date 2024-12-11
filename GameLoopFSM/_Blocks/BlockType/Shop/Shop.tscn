@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d27xsv1e3ch1w"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/BlockType/Shop/shop.gd" id="1_ol8ux"]
+[ext_resource type="Texture2D" uid="uid://b8f47skbl304a" path="res://GameLoopFSM/_Blocks/BlockType/Shop/shop.png" id="2_0h2rw"]
+[ext_resource type="PackedScene" uid="uid://cto5ediljvd0" path="res://GameLoopFSM/_World/World_shop/Shop.tscn" id="2_h6jk1"]
+
+[node name="Shop" type="Node2D"]
+rotation = 1.5708
+scale = Vector2(2, 2)
+script = ExtResource("1_ol8ux")
+world = ExtResource("2_h6jk1")
+texture = ExtResource("2_0h2rw")
+size = Vector3i(40, 40, 40)

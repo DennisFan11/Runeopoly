@@ -8,6 +8,7 @@ func _ready() -> void:
 	$Camera2D.enabled = false
 	$CanvasLayer.visible = false
 	$Camera2D.zoom = Vector2.ONE * 1.5
+	InstanceGetter.game_loop = self
 func LOOP_ENTER():
 	visible = true
 	$Background.visible = true
@@ -15,7 +16,16 @@ func LOOP_ENTER():
 	$CanvasLayer.visible = true
 	_ENTER()
 signal LOOP_EXIT
+
+
+
+func GameOver():
+	InstanceGetter.get_world().EXIT()
+	LOOP_EXIT.emit()
+	
 #endregion
+
+
 
 @onready var _GameBoard := $GameBoard # 負責Block和,走格子動畫 MOVE
 @onready var _WorldContainer := $WorldContainer # 負責World的生成 EXPLORE
@@ -58,7 +68,11 @@ func _update(): # state ENTER
 		GAMEBOARD_MOVE:
 			_GameBoard.ENTER(_dice_num)
 		CUTSCENE:
-			_UI.CUT_SCENE_ENTER()
+			if _world:
+				_UI.CUT_SCENE_ENTER()
+			else:
+				_state = EXPLORE
+				_update()
 		EXPLORE:
 			pass
 

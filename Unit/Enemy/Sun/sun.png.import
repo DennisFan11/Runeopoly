@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://14djabdvomtm"
-path="res://.godot/imported/AncientCosmicPortal.png-10ac943b7e0ff4ec1f9179ba2e161492.ctex"
+uid="uid://bn4ovwyy2iru3"
+path="res://.godot/imported/sun.png-029ff93fe034edc0f12beb18aee62eb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameLoopFSM/_Blocks/BlockAsset/AncientCosmicPortal.png"
-dest_files=["res://.godot/imported/AncientCosmicPortal.png-10ac943b7e0ff4ec1f9179ba2e161492.ctex"]
+source_file="res://Unit/Enemy/Sun/sun.png"
+dest_files=["res://.godot/imported/sun.png-029ff93fe034edc0f12beb18aee62eb8.ctex"]
 
 [params]
 

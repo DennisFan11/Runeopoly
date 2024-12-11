@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4b8aytxq2jns"]
+
+[ext_resource type="Script" path="res://Unit/Enemy/Sun/sun.gd" id="1_hs38c"]
+[ext_resource type="SpriteFrames" uid="uid://c62ohthqjf021" path="res://Unit/Enemy/Sun/Sun.tres" id="2_cbpq3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g7rh"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0yoe"]
+radius = 19.0263
+
+[node name="Sun" type="CharacterBody2D"]
+script = ExtResource("1_hs38c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0g7rh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_cbpq3")
+animation = &"IDLE"
+frame_progress = 0.169507
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_k0yoe")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

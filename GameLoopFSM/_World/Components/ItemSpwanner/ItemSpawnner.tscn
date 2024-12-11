@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1qpg2vkakj4y"]
+
+[ext_resource type="Script" path="res://GameLoopFSM/_World/Components/ItemSpwanner/item_spawnner.gd" id="1_0eytr"]
+
+[node name="ItemSpawnner" type="Node2D"]
+script = ExtResource("1_0eytr")

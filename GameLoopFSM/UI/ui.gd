@@ -1,6 +1,6 @@
 extends Control
 
-const ROLL_TIME:float = 3.0
+const ROLL_TIME:float = 1.0
 
 signal EXIT
 
@@ -15,8 +15,10 @@ func ENTER():
 var _rolled_number = 0
 func _on_roll_button_pressed() -> void:
 	%RollButton.disabled = true
-	const _count:int = 30
-	const _time:float = 0.03
+	var _count:int = 30
+	var _time:float = 0.03
+	if Setting.DEBUG:
+		_count = 1
 	for i in range(_count):
 		get_tree().create_timer(i * _time).timeout.connect(_random_roll)
 	get_tree().create_timer(_count * _time).timeout.connect(_roll_dice)
@@ -48,14 +50,20 @@ func _EXIT():
 
 
 func CUT_SCENE_ENTER():
+	var time = 1.5
+	if Setting.DEBUG:
+		time = 0.0
 	$AnimationPlayer.play("Cutscene")
-	get_tree().create_timer(1.5).timeout.connect(_center)
+	get_tree().create_timer(time).timeout.connect(_center)
 
 signal CUT_SCENE_CENTER
 func _center():
+	var time = 1.5
+	if Setting.DEBUG:
+		time = 0.0
 	CUT_SCENE_CENTER.emit()
 	$AnimationPlayer.play_backwards("Cutscene")
-	get_tree().create_timer(1.5).timeout.connect(_CUT_SCENE_EXIT)
+	get_tree().create_timer(time).timeout.connect(_CUT_SCENE_EXIT)
 
 func _CUT_SCENE_EXIT():
 	visible = false

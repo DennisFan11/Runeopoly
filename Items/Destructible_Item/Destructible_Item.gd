@@ -19,7 +19,9 @@ func _SELECT(delta: float)-> void:
 	_gravity_move(delta)
 	_hook_move(delta)
 	super(delta)
-
+func _USED(delta: float):
+	body.apply_impulse(_get_end_force() * delta)
+	super(delta)
 
 func _gravity_move(delta: float)-> void:
 	pass
@@ -28,7 +30,11 @@ func _hook_move(delta: float)-> void:
 
 
 
-
+func _get_end_force()-> Vector2: # 計算End加速度
+	const K:float = 100.0
+	var dist:Vector2 = get_pos() - EndTarget
+	var force:Vector2 = -K * dist
+	return force
 
 
 

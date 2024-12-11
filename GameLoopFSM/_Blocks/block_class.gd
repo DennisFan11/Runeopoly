@@ -8,9 +8,10 @@ var pos:int
 func GetWorld()-> World:
 	if _world:
 		return _world
-	_world = world.instantiate()
-	return _world
-
+	if world:
+		_world = world.instantiate()
+		return _world
+	return null
 func blockEvent():
 	await get_tree().create_timer(1.0)
 
@@ -27,7 +28,7 @@ func blockEvent():
 		_set_sprite()
 
 func _ready() -> void:
-	scale = Vector2.ONE * 4.0
+	#scale = Vector2.ONE * 4.0
 	for i in get_children():
 		i.queue_free()
 	_sprite_list = []

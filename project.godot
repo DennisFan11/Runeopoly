@@ -27,11 +27,16 @@ folder_colors={
 "res://GameLoopFSM/": "blue",
 "res://GameLoopFSM/GameBoard/PlayerIcon/": "red",
 "res://GameLoopFSM/_Blocks/": "green",
+"res://GameLoopFSM/_Blocks/BlockType/_Boss/": "red",
 "res://GameLoopFSM/_World/": "yellow",
 "res://GameLoopFSM/_World/BattleUI/": "red",
 "res://GameLoopFSM/_World/Components/": "yellow",
-"res://GameLoopFSM/_World/Components/ItemSpawner/": "red",
+"res://GameLoopFSM/_World/Components/ItemSpwanner/": "red",
+"res://Items/Chargeable_Item/": "gray",
+"res://Items/Data_ Item/": "gray",
+"res://Items/Destructible_Item/": "purple",
 "res://MainMenu/": "purple",
+"res://Shop/": "orange",
 "res://TestStuff/": "green",
 "res://ToolClass/": "green",
 "res://Unit/": "red",
@@ -46,6 +51,8 @@ EntryPoint="地圖進入點"
 EnemySpawnPoint="敵人刷新點"
 Wall="地圖牆"
 Item=""
+ShopItem=""
+Buyer=""
 
 [input]
 

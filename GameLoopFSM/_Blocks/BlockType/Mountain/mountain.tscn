@@ -1,11 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://du51xpw861wu6"]
+[gd_scene load_steps=4 format=3 uid="uid://du51xpw861wu6"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/_Blocks/block_class.gd" id="1_yjbjo"]
+[ext_resource type="PackedScene" uid="uid://s88mnqqmabjc" path="res://GameLoopFSM/_World/World_0/test_world.tscn" id="2_3eigq"]
 [ext_resource type="Texture2D" uid="uid://bv1kg5fr57ttg" path="res://GameLoopFSM/_Blocks/BlockAsset/mountain_block.png" id="3_p77tm"]
 
 [node name="Mountain" type="Node2D"]
 position = Vector2(-74, -289)
 scale = Vector2(4, 4)
 script = ExtResource("1_yjbjo")
-world = null
+world = ExtResource("2_3eigq")
 texture = ExtResource("3_p77tm")
