@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1wa3rano774m"]
+
+[ext_resource type="Script" path="res://Shop/iVampire/vampire.gd" id="1_57t26"]
+[ext_resource type="Texture2D" uid="uid://ftat5c7ft4c5" path="res://Shop/iVampire/吸血.png" id="2_rx7gw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uhu6"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1m7v"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t51x"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ab84"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtb06"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyw08"]
+atlas = ExtResource("2_rx7gw")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6apm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uhu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1m7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t51x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ab84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtb06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyw08")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Vampire" type="Node2D"]
+script = ExtResource("1_57t26")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_j6apm")
+frame_progress = 0.813065

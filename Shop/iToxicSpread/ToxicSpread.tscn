@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://drdxq1qujfieh"]
+
+[ext_resource type="Script" path="res://Shop/iToxicSpread/toxic_spread.gd" id="1_6cd8v"]
+[ext_resource type="Texture2D" uid="uid://ce35lq648oao" path="res://Shop/iToxicSpread/毒物擴散.png" id="2_ettm1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb250"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q03y6"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77iif"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_474bj"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2kf2"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n0tr"]
+atlas = ExtResource("2_ettm1")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjdud"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb250")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q03y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77iif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_474bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2kf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1n0tr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ToxicSpread" type="Node2D"]
+script = ExtResource("1_6cd8v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xjdud")
+frame_progress = 0.814458

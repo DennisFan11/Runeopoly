@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=4 uid="uid://cto5ediljvd0"]
 
-[ext_resource type="Script" path="res://GameLoopFSM/_World/World_shop/shop.gd" id="1_5igwn"]
+[ext_resource type="Script" path="res://GameLoopFSM/_Blocks/BlockType/Shop/World_shop/shop.gd" id="1_5igwn"]
 [ext_resource type="TileSet" uid="uid://ck1lf81bxcgpc" path="res://GameLoopFSM/_World/WorldAsset/WorldTileSet.tres" id="2_1wi7s"]
 [ext_resource type="PackedScene" uid="uid://fioblsml8my8" path="res://GameLoopFSM/_World/Components/EntryPoint/EntryPoint.tscn" id="3_ipwch"]
-[ext_resource type="Texture2D" uid="uid://bh4s4pnouwfmx" path="res://GameLoopFSM/_World/World_shop/shop-export.png" id="4_be1xk"]
+[ext_resource type="Texture2D" uid="uid://bh4s4pnouwfmx" path="res://GameLoopFSM/_Blocks/BlockType/Shop/World_shop/shop-export.png" id="4_be1xk"]
 [ext_resource type="PackedScene" uid="uid://n8h3llnnq374" path="res://Shop/RandomShopItem/RandomShopItem.tscn" id="5_ggoj6"]
 
 [node name="Shop" type="Node2D"]

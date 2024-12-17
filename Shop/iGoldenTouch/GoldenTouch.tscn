@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddp6ib2u2q88q"]
+
+[ext_resource type="Script" path="res://Shop/iGoldenTouch/golden_touch.gd" id="1_e48tk"]
+[ext_resource type="Texture2D" uid="uid://d3hdc2iunf0sk" path="res://Shop/iGoldenTouch/黃金之觸.png" id="2_t4aau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qssno"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87qqa"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtxpw"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2he86"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyagg"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igb04"]
+atlas = ExtResource("2_t4aau")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obrxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qssno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87qqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtxpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2he86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyagg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igb04")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="GoldenTouch" type="Node2D"]
+script = ExtResource("1_e48tk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_obrxj")
+frame_progress = 0.82283

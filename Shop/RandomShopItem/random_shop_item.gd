@@ -1,7 +1,11 @@
 extends Node2D
 
 var arr:Array[PackedScene]= [
-	preload("res://Shop/ShotRate/ShotRate.tscn")
+	preload("res://Shop/iAgile/Agile.tscn"),
+	preload("res://Shop/iGoldenTouch/GoldenTouch.tscn"),
+	preload("res://Shop/iRegeneration/Regeneration.tscn"),
+	preload("res://Shop/iToxicSpread/ToxicSpread.tscn"),
+	preload("res://Shop/iVampire/Vampire.tscn")
 ]
 func _ready() -> void:
 	var node = arr.pick_random().instantiate()

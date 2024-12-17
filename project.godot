@@ -27,6 +27,8 @@ folder_colors={
 "res://GameLoopFSM/": "blue",
 "res://GameLoopFSM/GameBoard/PlayerIcon/": "red",
 "res://GameLoopFSM/_Blocks/": "green",
+"res://GameLoopFSM/_Blocks/BlockType/Box/": "green",
+"res://GameLoopFSM/_Blocks/BlockType/Mountain/": "green",
 "res://GameLoopFSM/_Blocks/BlockType/_Boss/": "red",
 "res://GameLoopFSM/_World/": "yellow",
 "res://GameLoopFSM/_World/BattleUI/": "red",
