@@ -36,4 +36,4 @@ func _physics_process(delta):
 			i.hurt(DMG, ATTACK_GUARD)
 
 func _death(): # NOTE 死亡時自動呼叫 生命週期
-	pass
+	super()

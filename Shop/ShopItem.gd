@@ -26,7 +26,7 @@ func _get_price_icon(price:Array[int])-> Array[Control]: # 生成價格表
 
 
 var _discriptLabel:RichTextLabel
-var _price_bar:VBoxContainer
+var _price_bar:HBoxContainer
 var _area:Area2D
 func _ready() -> void:
 	scale = Vector2.ONE /2.0
@@ -37,7 +37,7 @@ func _ready() -> void:
 	_discriptLabel.visible = false
 	add_child(_discriptLabel)
 	
-	_price_bar = VBoxContainer.new()
+	_price_bar = HBoxContainer.new()
 	_price_bar.visible = false
 	_price_bar.alignment = BoxContainer.ALIGNMENT_CENTER
 	_price_bar.size = Vector2(200, 40)
@@ -47,9 +47,10 @@ func _ready() -> void:
 		_price_bar.add_child(node)
 	
 	_area = Area2D.new()
+	_area.add_to_group("ShopItem")
 	var coll = CollisionShape2D.new()
 	var shape = CircleShape2D.new()
-	shape.radius = 20.0
+	shape.radius = 10.0
 	coll.shape = shape
 	_area.add_child(coll)
 	_area.collision_layer = 128
@@ -65,9 +66,12 @@ func can_buy(can:bool):
 	if !is_queued_for_deletion():
 		if can:
 			_discriptLabel.text = "[center][color=green]"+get_discript()+"[/color][/center]"
+			#print_rich(_discriptLabel.text)
+			
 		else:
 			_discriptLabel.text = "[center][color=red]"+get_discript()+"[/color][/center]"
-
+			#print_rich(_discriptLabel.text)
+			#print("ok")
 var _view: bool
 func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("Buyer") and !is_queued_for_deletion():

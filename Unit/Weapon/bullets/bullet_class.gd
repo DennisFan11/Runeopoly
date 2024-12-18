@@ -22,6 +22,8 @@ func _get_force()-> float:
 	return 0.0
 func _handle(old:int, delta:float): 
 	pass
+func _get_guard()-> float:
+	return 0.0
 #endregion
 
 
@@ -33,7 +35,7 @@ func _check_hit(body:Node2D)-> bool: # 檢測是否擊中目標的工具函數
 	if body is Unit:
 		if (body as Unit).get_team() != _team:
 			body.push(_dir*_get_force())
-			body.hurt(_get_damage())
+			body.hurt(_get_damage(), _get_guard())
 			return true
 	if body.is_in_group("Wall"):
 		return true

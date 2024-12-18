@@ -8,5 +8,6 @@ func _ready() -> void:
 	set_attack_area($AttackArea)
 
 func _death(): # NOTE 死亡時自動呼叫 生命週期
-	_spawn_item(1, position)
+	if randf_range(0.0, 1.0) < GOLD_LEVEL:
+		_spawn_item(1, position)
 	super()

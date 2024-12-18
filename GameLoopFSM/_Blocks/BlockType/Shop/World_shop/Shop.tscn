@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cto5ediljvd0"]
+[gd_scene load_steps=7 format=4 uid="uid://cto5ediljvd0"]
 
 [ext_resource type="Script" path="res://GameLoopFSM/_Blocks/BlockType/Shop/World_shop/shop.gd" id="1_5igwn"]
 [ext_resource type="TileSet" uid="uid://ck1lf81bxcgpc" path="res://GameLoopFSM/_World/WorldAsset/WorldTileSet.tres" id="2_1wi7s"]
 [ext_resource type="PackedScene" uid="uid://fioblsml8my8" path="res://GameLoopFSM/_World/Components/EntryPoint/EntryPoint.tscn" id="3_ipwch"]
 [ext_resource type="Texture2D" uid="uid://bh4s4pnouwfmx" path="res://GameLoopFSM/_Blocks/BlockType/Shop/World_shop/shop-export.png" id="4_be1xk"]
 [ext_resource type="PackedScene" uid="uid://n8h3llnnq374" path="res://Shop/RandomShopItem/RandomShopItem.tscn" id="5_ggoj6"]
+[ext_resource type="PackedScene" uid="uid://1qpg2vkakj4y" path="res://GameLoopFSM/_World/Components/ItemSpwanner/ItemSpawnner.tscn" id="6_u3ce1"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_5igwn")
@@ -16,7 +17,14 @@ tile_set = ExtResource("2_1wi7s")
 [node name="EntryPoint" parent="." instance=ExtResource("3_ipwch")]
 position = Vector2(-126, -110)
 
+[node name="Shop-export2" type="Sprite2D" parent="."]
+modulate = Color(0.498039, 0.513726, 0.513726, 1)
+position = Vector2(192, -31)
+scale = Vector2(2, 2)
+texture = ExtResource("4_be1xk")
+
 [node name="Shop-export" type="Sprite2D" parent="."]
+modulate = Color(0.498039, 0.513726, 0.513726, 1)
 position = Vector2(374, -32)
 scale = Vector2(2, 2)
 texture = ExtResource("4_be1xk")
@@ -29,3 +37,15 @@ position = Vector2(380, -20)
 
 [node name="RandomShopItem3" parent="." instance=ExtResource("5_ggoj6")]
 position = Vector2(433, -23)
+
+[node name="RandomShopItem6" parent="." instance=ExtResource("5_ggoj6")]
+position = Vector2(250, -24)
+
+[node name="RandomShopItem5" parent="." instance=ExtResource("5_ggoj6")]
+position = Vector2(200, -22)
+
+[node name="RandomShopItem4" parent="." instance=ExtResource("5_ggoj6")]
+position = Vector2(142, -20)
+
+[node name="ItemSpawnner" parent="." instance=ExtResource("6_u3ce1")]
+position = Vector2(-55, -88)

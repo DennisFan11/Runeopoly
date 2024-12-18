@@ -1,6 +1,12 @@
 extends Node2D # ItemOwner
 
+var time = 0.0
+
 func _process(delta: float) -> void:
+	time += delta
+	if time >= 1.0:
+		time = 0.0
+		_store()
 	var list:Array[ShopItem] = []
 	for i:Node2D in $Area2D.get_overlapping_areas():
 		if i.is_in_group("ShopItem"):
@@ -48,20 +54,24 @@ func _process(delta: float) -> void:
 			
 		
 
-func _exit_tree() -> void: # 存入道具
+func _store():
 	var item_list:Array[int] = []
 	for i:Item in item_arr:
 		item_list.append(i.ID)
 	GameInfo.player_items = item_list
+func _exit_tree() -> void: # 存入道具
+	pass
 
 func _ready() -> void: # 提取道具
+	_spawn()
+
+func _spawn():
 	for i in GameInfo.player_items:
 		await get_tree().create_timer(0.1).timeout
 		ItemFactory.spawn(i, global_position)
+		_grab_item()
 	await get_tree().create_timer(0.5).timeout
 	_grab_item()
-
-
 
 
 func _physics_process(delta: float) -> void:

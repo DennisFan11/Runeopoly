@@ -7,6 +7,7 @@ static var file := {
 	STONE:preload("res://Items/ItemFactory/asset/Stone.png"),
 	WOOD:preload("res://Items/ItemFactory/asset/Wood.png")
 }
+
 static func spawn(id:int, pos:Vector2)->void:
 	var item:Item12x12 = item12x12.instantiate()
 	item.ID = id
