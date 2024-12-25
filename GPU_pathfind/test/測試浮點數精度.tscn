@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba8vmcq71jysc"]
+
+[ext_resource type="Shader" path="res://GPU_pathfind/test/測試浮點數精度.gdshader" id="1_0qwog"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ag5o"]
+shader = ExtResource("1_0qwog")
+
+[node name="測試浮點數精度" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1ag5o")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

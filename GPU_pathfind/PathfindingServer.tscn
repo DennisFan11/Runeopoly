@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://biru08f5vkes"]
+
+[ext_resource type="Script" path="res://GPU_pathfind/PathfindingServer.gd" id="1_jq44k"]
+[ext_resource type="Shader" path="res://GPU_pathfind/Shader/occlusion.gdshader" id="2_qqcpt"]
+[ext_resource type="Shader" path="res://GPU_pathfind/Shader/target.gdshader" id="3_l7uf6"]
+[ext_resource type="Shader" path="res://GPU_pathfind/Shader/flowfield.gdshader" id="3_nexck"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0j3v"]
+shader = ExtResource("3_nexck")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rjcul"]
+viewport_path = NodePath("Buffer")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kw311"]
+shader = ExtResource("2_qqcpt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kgvy8"]
+shader = ExtResource("3_l7uf6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhku2"]
+shader = ExtResource("3_nexck")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7q4uh"]
+viewport_path = NodePath("MainViewport")
+
+[node name="PathfindingServer" type="Node"]
+script = ExtResource("1_jq44k")
+
+[node name="MainViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+use_hdr_2d = true
+canvas_item_default_texture_filter = 0
+
+[node name="FromBuffer" type="Sprite2D" parent="MainViewport"]
+unique_name_in_owner = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_t0j3v")
+texture = SubResource("ViewportTexture_rjcul")
+
+[node name="OcclusionGroup" type="CanvasGroup" parent="MainViewport"]
+unique_name_in_owner = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_kw311")
+
+[node name="TargetRect" type="ColorRect" parent="MainViewport"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_kgvy8")
+offset_right = 10.0
+offset_bottom = 20.0
+
+[node name="MainCamera2D" type="Camera2D" parent="MainViewport"]
+unique_name_in_owner = true
+
+[node name="Buffer" type="SubViewport" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+use_hdr_2d = true
+
+[node name="FromMain" type="Sprite2D" parent="Buffer"]
+unique_name_in_owner = true
+texture_filter = 1
+material = SubResource("ShaderMaterial_vhku2")
+texture = SubResource("ViewportTexture_7q4uh")
+
+[node name="BufferCamera2D" type="Camera2D" parent="Buffer"]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_get_img"]
