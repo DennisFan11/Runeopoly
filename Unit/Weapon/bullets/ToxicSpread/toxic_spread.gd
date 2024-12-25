@@ -9,7 +9,7 @@ func _handle(old:int, delta:float):
 	pass
 
 func _get_guard()-> float:
-	return 1.0
+	return 0.1
 
 static var LEVEL:float = 0
 var _time = 0.0

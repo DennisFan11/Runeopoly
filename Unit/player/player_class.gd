@@ -51,7 +51,7 @@ func _ready():
 	
 	
 	
-var REGEN = 0.0
+static var REGEN = 0.0
 func _physics_process(delta):
 	_hp += REGEN*delta # REGEN Perk
 	
