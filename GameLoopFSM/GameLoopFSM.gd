@@ -10,6 +10,7 @@ func _ready() -> void:
 	$Camera2D.zoom = Vector2.ONE * 1.5
 	InstanceGetter.game_loop = self
 func LOOP_ENTER():
+	MessageManager.new_message("[color=yellow]Game Start[/color]")
 	visible = true
 	$Background.visible = true
 	$Camera2D.enabled = true
@@ -76,7 +77,8 @@ func _update(): # state ENTER
 				_update()
 		EXPLORE:
 			SoundManager.play_bgm(SoundManager.BGM.FIGHTING_BGM)
-			pass
+			MessageManager.new_message("[color=yellow]EXPLORE start[/color]")
+			pass  
 
 func _CutSceneCenter():
 	_GameBoard.visible = false
@@ -84,6 +86,7 @@ func _CutSceneCenter():
 	_WorldContainer.ENTER(_world) # from EXPLORE
 
 func _UI_ROLL_finish(num:int):
+	MessageManager.new_message("[color=yellow]Player roll: " +str(num)+ "[/color]")
 	_dice_num = num
 	_update()
 func _GAMEBOARD_MOVE_finish(world:World):
@@ -92,6 +95,7 @@ func _GAMEBOARD_MOVE_finish(world:World):
 func _CUTSCENE_finish():
 	_update()
 func _EXPLORE_finish():
+	MessageManager.new_message("[color=yellow]EXPLORE finish[/color]")
 	_update()
 
 func _input(event):

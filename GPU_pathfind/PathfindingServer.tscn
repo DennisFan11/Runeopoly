@@ -35,6 +35,7 @@ unique_name_in_owner = true
 transparent_bg = true
 use_hdr_2d = true
 canvas_item_default_texture_filter = 0
+render_target_update_mode = 4
 
 [node name="FromBuffer" type="Sprite2D" parent="MainViewport"]
 unique_name_in_owner = true
@@ -64,6 +65,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transparent_bg = true
 use_hdr_2d = true
+render_target_update_mode = 4
 
 [node name="FromMain" type="Sprite2D" parent="Buffer"]
 unique_name_in_owner = true

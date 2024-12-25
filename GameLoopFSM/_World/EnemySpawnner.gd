@@ -31,7 +31,9 @@ static func _spawn(world:World):
 static var _enemy_scene := [
 	[50, preload("res://Unit/Enemy/Skull/Skull.tscn")], # dmg = 10
 	[30, preload("res://Unit/Enemy/Apple/Apple.tscn")], # dmg = 15
-	[10, preload("res://Unit/Enemy/Sun/Sun.tscn")] # dmg = 50
+	[10, preload("res://Unit/Enemy/Sun/Sun.tscn")], # dmg = 50
+	[3, preload("res://Unit/Enemy/ButterFly/ButterFly.tscn")],
+	[1, preload("res://Unit/Enemy/Ghost/Ghost.tscn")]
 ]
 
 # 根據權重隨機選擇元素的函數

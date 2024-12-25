@@ -25,11 +25,11 @@ func ENTER(): # 給外部呼叫
 	PathfindingServer.AddOcclusion(pathfind_agent)
 	pathfind_agent.global_position = PathfindingServer.Global2Map(tileMap.global_position)
 	
-	var view = Sprite2D.new()
-	view.modulate = Color(1.0, 1.0, 1.0, 0.5)
-	view.texture = PathfindingServer.get_texture()
-	view.scale = Vector2.ONE * 5.0
-	add_child(view)
+	#var view = Sprite2D.new()
+	#view.modulate = Color(1.0, 1.0, 1.0, 0.5)
+	#view.texture = PathfindingServer.get_texture()
+	#view.scale = Vector2.ONE * 5.0
+	#add_child(view)
 	
 var pathfind_agent:TileMapLayer
 
