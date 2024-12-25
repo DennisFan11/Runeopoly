@@ -3,9 +3,9 @@ extends Unit
 func get_team()-> int: # 由子類完成 給外部的接口
 	return PLAYER
 
-var ACCELERATION = 13.5 # 百分比 
+static var ACCELERATION = 13.5 # 百分比 
 var DECELERATION = 20.0
-var MAX_SPEED = 150.0
+static var MAX_SPEED = 150.0
 var JUMP_SPEED = -500.0
 var G = 2000.0
 

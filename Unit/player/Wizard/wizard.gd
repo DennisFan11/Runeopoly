@@ -15,6 +15,7 @@ func _process(delta):
 	$State.text = _map[state] 
 	%AnimatedSprite2D.play(_map[state])
 	%AnimatedSprite2D.flip_h = last_flip
+	PathfindingServer.SetTarget(global_position)
 	
 func _physics_process(delta):
 	super(delta)

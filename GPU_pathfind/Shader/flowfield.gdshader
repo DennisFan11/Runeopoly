@@ -22,6 +22,7 @@ void fragment() {
 	temp = max(temp, max(up_right.b, down_left.b));
 
 	COLOR.b = temp - INCREMENT;
+	COLOR.b = max(max(up.b, down.b), max(left.b, right.b)) - INCREMENT;
 
 	// 根據最大值設置顏色方向
 	if (left.b == temp){

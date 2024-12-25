@@ -1,4 +1,4 @@
-class_name PathfindingServer extends Node
+extends Node # class_name PathfindingServer 
 
 @onready var _mainViewport = %MainViewport
 @onready var _occlusionGroup = %OcclusionGroup
@@ -6,11 +6,21 @@ class_name PathfindingServer extends Node
 
 
 func _ready() -> void:
-	ReSize(Vector2.ONE*512.0, Vector2.ONE*64.0)
+	ReSize(
+		Vector2.ONE*10000.0,
+		Vector2.ONE*2000.0
+	)
 
 ## 
 func AddOcclusion(node:Node2D):
 	%OcclusionGroup.add_child(node)
+
+func AddEnemy()-> Control:
+	var node = ColorRect.new()
+	node.size = Vector2.ONE * 2.0 * Vector2(_origin_size)/Vector2(_resolution)
+	
+	%EnemyGroup.add_child(node)
+	return node
 
 ##
 func SetTarget(position:Vector2):
@@ -20,7 +30,7 @@ func SetTarget(position:Vector2):
 var _img:Image
 func _get_img():
 	_img = _buffer.get_viewport().get_texture().get_image()
-	print("img update")
+	#print("img update")
 
 # Bilinear sampling function in GDScript
 func get_pixel_bilinear(img: Image, vec:Vector2) -> Color:
@@ -63,7 +73,7 @@ func SampVector(position:Vector2)-> Vector2:
 	if !_img:
 		return Vector2.ZERO
 	var fix_pos = Global2Map(position) + _resolution/2.0
-	print("pos = ", fix_pos)
+	#print("pos = ", fix_pos)
 	var c:Color = get_pixel_bilinear(_img, fix_pos)
 	return Vector2(c.r, c.g)
 
@@ -80,8 +90,11 @@ func ReSize( origin_size:Vector2i, resolution:Vector2i )-> void:
 	%BufferCamera2D.zoom = Vector2(resolution)/Vector2(origin_size)
 	%FromBuffer.scale = Vector2(origin_size)/Vector2(resolution)
 	%FromMain.scale = Vector2(origin_size)/Vector2(resolution)
+	%TargetRect.scale = Vector2(origin_size)/Vector2(resolution)
 	#print(Vector2(resolution)/Vector2(origin_size))
 
 
 func Global2Map(position:Vector2)-> Vector2:
 	return position * Vector2(_resolution)/Vector2(_origin_size)
+func get_texture()->ViewportTexture:
+	return _buffer.get_texture()

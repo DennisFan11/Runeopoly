@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://biru08f5vkes"]
+[gd_scene load_steps=13 format=3 uid="uid://biru08f5vkes"]
 
 [ext_resource type="Script" path="res://GPU_pathfind/PathfindingServer.gd" id="1_jq44k"]
 [ext_resource type="Shader" path="res://GPU_pathfind/Shader/occlusion.gdshader" id="2_qqcpt"]
 [ext_resource type="Shader" path="res://GPU_pathfind/Shader/target.gdshader" id="3_l7uf6"]
 [ext_resource type="Shader" path="res://GPU_pathfind/Shader/flowfield.gdshader" id="3_nexck"]
+[ext_resource type="Shader" path="res://GPU_pathfind/eyemy.gdshader" id="4_u8uso"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0j3v"]
 shader = ExtResource("3_nexck")
@@ -13,6 +14,9 @@ viewport_path = NodePath("Buffer")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kw311"]
 shader = ExtResource("2_qqcpt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnhci"]
+shader = ExtResource("4_u8uso")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kgvy8"]
 shader = ExtResource("3_l7uf6")
@@ -43,11 +47,15 @@ unique_name_in_owner = true
 texture_filter = 1
 material = SubResource("ShaderMaterial_kw311")
 
+[node name="EnemyGroup" type="CanvasGroup" parent="MainViewport"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_nnhci")
+
 [node name="TargetRect" type="ColorRect" parent="MainViewport"]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_kgvy8")
-offset_right = 10.0
-offset_bottom = 20.0
+offset_right = 2.0
+offset_bottom = 2.0
 
 [node name="MainCamera2D" type="Camera2D" parent="MainViewport"]
 unique_name_in_owner = true

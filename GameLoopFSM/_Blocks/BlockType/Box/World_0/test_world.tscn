@@ -12,8 +12,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-85, -87, 704, -101, 679, 714, -140, 697)])
 agent_radius = 15.0
 
-[node name="terrain_world" type="Node2D"]
+[node name="terrain_world" type="Node2D" node_paths=PackedStringArray("tileMap")]
 script = ExtResource("1_herei")
+tileMap = NodePath("NavigationRegion2D/TileMapLayer")
 
 [node name="ForestBackground" parent="." instance=ExtResource("5_82loe")]
 

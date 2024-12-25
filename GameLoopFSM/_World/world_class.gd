@@ -2,11 +2,16 @@ class_name World
 extends Node2D
 const EXPLORE_TIME:float = 60.0
 
+@export var tileMap:TileMapLayer
+
 signal exit
 func EXIT(): # 由子類呼叫
 	_EXIT()
 	exit.emit()
+	pathfind_agent.queue_free()
 	queue_free()
+
+
 func ENTER(): # 給外部呼叫
 	InstanceGetter.set_world(self)
 	_load_player()
@@ -16,11 +21,25 @@ func ENTER(): # 給外部呼叫
 	add_child(node)
 	node.BattleExit.connect(EXIT)
 	
+	pathfind_agent = tileMap.duplicate()
+	PathfindingServer.AddOcclusion(pathfind_agent)
+	pathfind_agent.global_position = PathfindingServer.Global2Map(tileMap.global_position)
+	
+	var view = Sprite2D.new()
+	view.modulate = Color(1.0, 1.0, 1.0, 0.5)
+	view.texture = PathfindingServer.get_texture()
+	view.scale = Vector2.ONE * 5.0
+	add_child(view)
+	
+var pathfind_agent:TileMapLayer
 
 func _EXIT(): # 在子類複寫 並呼叫 EXIT
 	pass
 func _ENTER(): # 在子類複寫
 	pass
+
+
+
 
 func _load_player():
 	var instance:Player = Setting.get_game_info().get_player_instance()
