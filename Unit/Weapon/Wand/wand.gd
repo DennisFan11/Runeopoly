@@ -7,7 +7,7 @@ func _fire(dir:Vector2): # 由子類複寫
 	_in_cd = true
 	get_tree().create_timer(CD).timeout.connect(_cd_over)
 	#print("fire")
-	
+	SoundManager.play_effect(SoundManager.EFFECT.ATTACK)
 	var node:Bullet = scene.instantiate()
 	node.Spawn(%Marker2D.global_position, dir.normalized(), PLAYER)
 	_get_world().add_child(node)

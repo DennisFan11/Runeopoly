@@ -61,6 +61,7 @@ func _update(): # state ENTER
 	
 	match _state:
 		UI_ROLL:
+			SoundManager.play_bgm(SoundManager.BGM.BGM)
 			_GameBoard.visible = true
 			$Camera2D.enabled = true
 			pass
@@ -74,6 +75,7 @@ func _update(): # state ENTER
 				_state = EXPLORE
 				_update()
 		EXPLORE:
+			SoundManager.play_bgm(SoundManager.BGM.FIGHTING_BGM)
 			pass
 
 func _CutSceneCenter():

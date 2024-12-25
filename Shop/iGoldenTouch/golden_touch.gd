@@ -9,5 +9,5 @@ func get_price()->Array[int]:
 
 func buyed(): # 黃金之觸：擊敗敵人後，敵人掉落的金幣增加。疊加後掉落率和金幣量進一步提升
 	Enemy.GOLD_LEVEL += 0.5
-	
+	MessageManager.new_message("[color=green]Player buyed \"GoldenTouch\"[/color]")
 	super()

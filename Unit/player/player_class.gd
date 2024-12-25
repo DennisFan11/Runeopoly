@@ -3,6 +3,11 @@ extends Unit
 func get_team()-> int: # 由子類完成 給外部的接口
 	return PLAYER
 
+func hurt(value: float, guard_time:float=0.0): # 給外部的接口 # guard 為霸體時間
+	MessageManager.new_message("[color=red]Player been hurt ![/color]")
+	super(value, guard_time)
+
+
 static var ACCELERATION = 13.5 # 百分比 
 var DECELERATION = 20.0
 static var MAX_SPEED = 150.0
@@ -32,6 +37,8 @@ func is_grab(): # 使用area2D判斷有沒有抓到牆 由子類完成
 #--------------------------以上為對外接口
 
 func _death(): # NOTE 死亡時自動呼叫 生命週期
+	SoundManager.play_effect(SoundManager.EFFECT.PLAYER_DIE)
+	MessageManager.new_message("[color=red]Player dead[/color]")
 	InstanceGetter.game_loop.GameOver()
 	
 

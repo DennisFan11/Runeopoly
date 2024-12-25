@@ -9,4 +9,5 @@ func get_price()->Array[int]:
 
 func buyed(): # 吸血: 可吸取一部份傷害
 	Enemy.VAMPIRE_PERK += 0.1
+	MessageManager.new_message("[color=green]Player buyed \"Vampire\"[/color]")
 	super()
