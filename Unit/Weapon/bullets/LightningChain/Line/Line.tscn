@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dphctjsschorf"]
+
+[ext_resource type="Script" path="res://Unit/Weapon/bullets/LightningChain/Line/line.gd" id="1_6oxuy"]
+
+[sub_resource type="Curve" id="Curve_l1bpl"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Line" type="Line2D"]
+width_curve = SubResource("Curve_l1bpl")
+default_color = Color(0, 0.67451, 1, 1)
+script = ExtResource("1_6oxuy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_end"]
