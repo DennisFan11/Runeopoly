@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqqkr0ip17wo8"]
+
+[ext_resource type="Script" path="res://anime.gd" id="1_rft4m"]
+[ext_resource type="FontFile" uid="uid://ct6v4mfu8260e" path="res://Cubic_11.ttf" id="2_k5nqs"]
+
+[node name="anime" type="Node2D"]
+script = ExtResource("1_rft4m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.219501, 0.219501, 0.219501, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 116.0
+offset_top = 219.0
+offset_right = -118.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_k5nqs")
+theme_override_font_sizes/font_size = 25
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]

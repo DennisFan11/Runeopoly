@@ -3,8 +3,8 @@ extends Node
 var _GameLoop:GameLoopFSM
 func _ready() -> void:
 	$CanvasLayer/Control/GameOverPanel.visible = false
-	_enter_menu()
-	
+	$anime.finish.connect(_enter_menu)
+
 	
 
 var _started: bool = false
@@ -29,6 +29,7 @@ func _game_end():
 func _gameOverPanelHide():
 	$CanvasLayer/Control/GameOverPanel.visible = false
 func _enter_menu():
+	$anime.queue_free()
 	$CanvasLayer.visible = true
 	if Setting.DEBUG:
 		$CanvasLayer/AnimationPlayer.play("Enter", -1, 999.0)

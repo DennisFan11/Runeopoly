@@ -15,14 +15,14 @@ func _get_damage()-> float:
 	return 30.0
 func _get_force()-> float:
 	return 450.0
-static var lightningChain:bool = false
+static var lightningChain:bool = false # TODO
 func _on_area_2d_body_entered(body:Node2D):
 	
 	if _check_hit(body):
 		_state = HIT
 		if lightningChain:
 			var lightningChain = preload("res://Unit/Weapon/bullets/LightningChain/LightningChain.tscn").instantiate()
-			InstanceGetter.get_world().add_child(lightningChain)
+			InstanceGetter.get_world().call_deferred("add_child", lightningChain)
 			lightningChain.position = position
 		_kill_process()
 
