@@ -29,7 +29,8 @@ func _game_end():
 func _gameOverPanelHide():
 	$CanvasLayer/Control/GameOverPanel.visible = false
 func _enter_menu():
-	$anime.queue_free()
+	if is_instance_valid($anime):
+		$anime.queue_free()
 	$CanvasLayer.visible = true
 	if Setting.DEBUG:
 		$CanvasLayer/AnimationPlayer.play("Enter", -1, 999.0)

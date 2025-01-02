@@ -1,5 +1,5 @@
 class_name Setting
-const DEBUG:bool = true
+const DEBUG:bool = false
 static var _game_info:GameInfo
 
 
